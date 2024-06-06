@@ -1,6 +1,7 @@
+import {API_KEY} from './env.js'
 const articleElement = document.querySelector('.realtime');
 
-const url = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=3a14f7f61bc54ecf8098ec0ffc1443c1'
+const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
 
 fetch(url).then(response => {
   if(!response.ok) {
@@ -13,10 +14,13 @@ fetch(url).then(response => {
   const { articles } = data
   articles.forEach(article=>{
     const { title, author, urlToImage, description} = article;
-    console.log(article);
-    const  articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
+    if (description == null) return;
+    if (description == '[Removed]') return;
+
+    const img = urlToImage ?? 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freeiconspng.com%2Fuploads%2Fno-image-icon-11.PNG&f=1&nofb=1&ipt=b07d73c8fd18162a2f40a515ab49c82baedddf0f43df51447312d3def47bb6b7&ipo=images'
+    const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     <div class="flex flex-row w-1/2">
-      <img alt="" src="${urlToImage}" class="w-full" />
+      <img alt="" src=${img} class="w-full" />
     </div>
 
     <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
