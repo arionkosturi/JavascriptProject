@@ -14,7 +14,7 @@
     />
 
     <link rel="stylesheet" href="output.css" />
-    <script src="./src/index.js" defer type="module"></script>
+    <script src="./src/singleArticle.js" defer type="module"></script>
   </head>
 
   <body class="dark:bg-neutral-900 mx-auto container">
@@ -186,114 +186,14 @@
     </div>
     <!-- ./Submenu -->
 
-    <!-- Main News -->
-    <div class="md:flex mx-1">
-      <!-- Left Side -->
-      <div
-        class="relative hover:opacity-100 my-2 ml-1 md:ml-4 xl:ml-0 md:w-2/3 hover:cursor-pointer main_news"
-      >
-       
-      </div>
-      <!-- Right Side -->
-      <div
-        class="flex-row my-1 p-1 w-full md:w-1/2 lg:w-1/3 hover:cursor-pointer"
-      >
-        <div
-          class="flex bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md"
-        >
-          <img src="assets/img/trump.webp" class="w-1/3" alt="" />
-          <p class="m-1 dark:text-gray-300">
-            Trump stares down first derailment of his campaign-to-courthouse
-            strategy...
-          </p>
-        </div>
-        <div class="flex opacity-85 hover:opacity-100 hover:shadow-md mt-2">
-          <img src="assets/img/taylor-swift.webp" class="w-1/3" alt="" />
-          <p class="m-1 dark:text-gray-300">
-            Taylor Swift Judge Cites Taylor Swift Lyric in Response to Metallica
-            Insurance Lawsuit
-          </p>
-        </div>
-        <div
-          class="flex bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md mt-2"
-        >
-          <img src="assets/img/food.webp" class="w-1/3" alt="" />
-          <p class="m-1 dark:text-gray-300">
-            A Huge New Study Found That a Popular Diet Is Linked With a 91%
-            Higher Risk of Cardiovascular Death
-          </p>
-        </div>
-        <div class="flex opacity-85 hover:opacity-100 hover:shadow-md mt-2">
-          <img src="assets/img/robinho.webp" class="w-1/3" alt="" />
-          <p class="m-1 dark:text-gray-300">
-            Former footballer Robinho jailed in rural penitentiary for infamous
-            inmates
-          </p>
-        </div>
-        <div
-          class="flex bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md mt-2"
-        >
-          <img src="assets/img/stumpy.webp" class="w-1/3" alt="" />
-          <p class="m-1 dark:text-gray-300">
-            More than 100 iconic cherry trees in Washington are being cut down.
-            So long, Stumpy
-          </p>
-        </div>
-      </div>
-      <!-- ./Main News -->
-    </div>
-    <!-- Slogan - Real News -->
-    <div class="bg-gray-100 dark:bg-neutral-700 w-full dark:text-gray-200">
-      <div class="border-t-8 border-red-600 w-2/12"></div>
-      <h3 class="p-1 text-xl">Real News</h3>
-      <h1 class="p-1 text-2xl">Real Time</h1>
-      <div class="border-red-600 border-b-8 w-2/12"></div>
-    </div>
-    <!-- Real News - Real Time -->
-    <div class="grid lg:grid-cols-2 2xl:grid-cols-3 mx-1 realtime">
-      
-     
-<!-- 
-      <article class="flex bg-white shadow-md hover:shadow-xl my-3">
-        <div class="flex flex-row w-1/2">
-          <img alt="" src="assets/img/taylor-swift.webp" class="w-full" />
-        </div>
+    <!-- Single Article -->
 
-        <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
-          <div
-            class="border-gray-900/10 border-s p-4 sm:p-6 sm:border-l-transparent"
-          >
-            <a href="#">
-              <h3
-                class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-gray-300 uppercase"
-              >
-                Judge Cites Taylor Swift Lyric in Response to Metallica
-                Insurance Lawsuit
-              </h3>
-            </a>
+    <div class="single_article">
 
-            <p class="mt-2 line-clamp-3 text-sm/relaxed dark:text-gray-400">
-              MELBOURNE, AUSTRALIA - FEBRUARY 16: EDITORIAL USE ONLY. NO BOOK
-              COVERS Taylor Swift performs at Melbourne Cricket Ground on
-              February 16, 2024 in Melbourne, Australia. (Photo by Graham
-              Denholm/TAS24/Getty Images for TAS Rights Management) A California
-              judge couldn't help but bring Taylor Swift into the mix when
-              turning down another musician's request to proceed to trial.
-            </p>
-          </div>
-
-          <div class="sm:flex sm:justify-end sm:items-end">
-            <a
-              href="#"
-              class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
-            >
-            Lexo me shume
-          </a>
-          </div>
-        </div>
-      </article> -->
- 
     </div>
+
+    <!-- ./Single Article -->
+   
     <!-- Reklama -->
     <section
       class="md:grid md:grid-cols-2 opacity-85 hover:opacity-100 shadow-2xl mt-6 rounded-3xl"
@@ -320,103 +220,6 @@
       </div>
     </section>
     <!-- ./Reklama -->
-
-    <!-- Live and Trending Section -->
-    <section class="dark:bg-neutral-900 px-2 py-10 dark:text-gray-300">
-      <!-- Slogan - Categories -->
-      <div class="bg-gray-100 dark:bg-neutral-700 w-full dark:text-gray-200">
-        <div class="border-t-8 border-red-600 w-2/12"></div>
-        <h3 class="text-xl">Live and</h3>
-        <h1 class="text-2xl">Trending Now</h1>
-        <div class="border-red-600 border-b-8 w-2/12"></div>
-      </div>
-      <div class="gap-y-4 md:gap-4 grid grid-cols-12 mx-auto container">
-        <div
-          class="relative flex col-span-12 lg:col-span-8 bg-live dark:bg-gray-500 bg-cover bg-center min-h-96"
-        >
-          <span
-            class="bg-red bg-red-600 mt-2 w-16 h-5 font-bold text-center text-sm text-white animate-pulse"
-            >Live</span
-          >
-        </div>
-        <div class="lg:block hidden lg:col-span-4 py-2">
-          <div
-            class="space-x-5 dark:border-violet-600 mb-8 border-b-2 border-opacity-10"
-          >
-            <button
-              type="button"
-              class="border-purple-700 dark:border-violet-600 pb-5 border-b-4 font-bold text-xs uppercase"
-            >
-              Latest
-            </button>
-            <button
-              type="button"
-              class="border-purple-600 pb-5 hover:border-b-4 font-bold text-xs dark:text-gray-600 uppercase"
-            >
-              Popular
-            </button>
-          </div>
-          <div class="flex flex-col">
-            <div class="flex opacity-100 hover:opacity-95 hover:shadow-md px-1 py-2 hover:text-purple-600">
-              <img
-                class="dark:bg-gray-500 mr-4 w-20 h-20 object-cover"
-                src="assets/img/robinho.webp"
-              />
-              <div class="flex flex-col">
-                <a href="#" class="line-clamp-3"
-                  >Former footballer Robinho jailed in rural penitentiary for infamous inmates</a
-                >
-               
-              </div>
-            </div>
-            <div class="flex opacity-100 hover:opacity-95 hover:shadow-md px-1 py-2 hover:text-purple-600">
-              <img
-                class="dark:bg-gray-500 mr-4 w-20 h-20 object-cover"
-                src="assets/img/taylor-swift.webp"
-              />
-              <div class="flex flex-col">
-                <a
-                  href="#"
-                  class="line-clamp-3"
-                  >Taylor Swift Judge Cites Taylor Swift Lyric in Response to Metallica Insurance Lawsuit</a
-                >
-               
-              </div>
-            </div>
-            <div class="flex opacity-100 hover:opacity-95 hover:shadow-md px-1 py-2 hover:text-purple-600">
-              <img
-                alt=""
-                class="dark:bg-gray-500 mr-4 w-20 h-20 object-cover"
-                src="assets/img/matt.webp"
-              />
-              <div class="flex flex-col">
-                <a
-                  href="#"
-                  class="line-clamp-3"
-                  >Matt Gaetz worries House may “end up with a Democrat” speaker after MTG files to oust Mike Johnson</a>
-               
-              </div>
-            </div>
-            <div class="flex opacity-100 hover:opacity-95 hover:shadow-md px-1 py-2 hover:text-purple-600">
-              <img
-                alt=""
-                class="dark:bg-gray-500 mr-4 w-20 h-20 object-cover"
-                src="assets/img/food.webp"
-              />
-              <div class="flex flex-col">
-                <a
-                  href="#"
-                  class="line-clamp-3"
-                  >A Huge New Study Found That a Popular Diet Is Linked With a 91% Higher Risk of Cardiovascular Death</a
-                >
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ./Live and Trending Section -->
 
     <!-- Categories -->
     <div class="mx-auto px-2 container">

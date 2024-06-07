@@ -1,7 +1,8 @@
 import {API_KEY} from './env.js'
 const articleElement = document.querySelector('.realtime');
 
-const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
+const url = `https://newsapi.org/v2/
+top-headlines?country=us&apiKey=${API_KEY}`
 
 fetch(url).then(response => {
   if(!response.ok) {
@@ -20,7 +21,7 @@ fetch(url).then(response => {
     const img = urlToImage ?? 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freeiconspng.com%2Fuploads%2Fno-image-icon-11.PNG&f=1&nofb=1&ipt=b07d73c8fd18162a2f40a515ab49c82baedddf0f43df51447312d3def47bb6b7&ipo=images'
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     <div class="flex flex-row w-1/2">
-      <img alt="" src=${img} class="w-full" />
+      <img alt="" src=${img} class="w-full h-34 p-1" />
     </div>
 
     <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
@@ -35,7 +36,7 @@ fetch(url).then(response => {
           </h3>
         </a>
 
-        <p> ${description}
+        <p class="line-clamp-4"> ${description}
         </p>
       </div>
 

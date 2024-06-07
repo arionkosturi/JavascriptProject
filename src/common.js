@@ -1,0 +1,1 @@
+export const singleArticleElement = document.querySelector('.single_article');
