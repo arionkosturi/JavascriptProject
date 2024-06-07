@@ -1,3 +1,4 @@
+import { news } from './modules/fetch.js'
 export const mainNews =`
  <div class="opacity-95 hover:opacity-100 mr-2">
           <img src="assets/img/matt.webp" alt="" class="opacity-90" />
@@ -10,3 +11,6 @@ export const mainNews =`
           </div>
         </div>
 `
+
+
+console.log(news);
