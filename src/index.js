@@ -1,4 +1,6 @@
 import {API_KEY} from './env.js'
+import { mainNews } from './mainNews.js'
+import { mainNewsElement } from './common.js'
 const articleElement = document.querySelector('.realtime');
 
 const url = `https://newsapi.org/v2/
@@ -60,3 +62,4 @@ fetch(url).then(response => {
 )
 
 // article.innerHTML = `${data}`
+mainNewsElement.insertAdjacentHTML('afterbegin', mainNews);
