@@ -15,7 +15,12 @@ export const news = fetch(url).then(response => {
     const { title, author, urlToImage, description} = article;
     if (description == null) return;
     if (description == '[Removed]') return;
-    return article;
+    let articleTitle = title;
+    let articleDescription = description;
+
+
+
+    return articleTitle;
     
 }
 )
