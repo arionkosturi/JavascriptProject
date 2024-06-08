@@ -19,12 +19,13 @@ fetch(url).then(response => {
     const { title, urlToImage, description} = article;
     if (description == null) return;
     if (description == '[Removed]') return;
+    if (urlToImage == null) return;
+
     artikull.push({title, description, urlToImage})
 
-    const img = urlToImage ?? 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freeiconspng.com%2Fuploads%2Fno-image-icon-11.PNG&f=1&nofb=1&ipt=b07d73c8fd18162a2f40a515ab49c82baedddf0f43df51447312d3def47bb6b7&ipo=images'
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     <div class="flex flex-row w-1/2">
-      <img alt="" src=${img} class="w-full h-34 p-1" />
+      <img alt="" src=${urlToImage} class="w-full h-34 p-1" />
     </div>
 
     <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
