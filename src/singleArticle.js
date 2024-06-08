@@ -1,10 +1,8 @@
-import { mainNewsElement,
-  mainNewsRightSideElement,
-  articleElement,
+import { 
   singleArticleElement,
   url
  } from './common.js'
-
+import { categories } from "./modules/categories.js";
 let artikull = [];
   fetch(url).then(response => {
     if(!response.ok) {
@@ -58,3 +56,5 @@ let artikull = [];
      
   })
   })
+
+  document.querySelector('.categories').innerHTML = categories;

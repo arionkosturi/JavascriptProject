@@ -1,9 +1,8 @@
 import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
-  url
- } from './common.js'
-
+  url } from './common.js'
+import { categories } from "./modules/categories.js";
 let artikull = [];
 
 fetch(url).then(response => {
@@ -104,3 +103,9 @@ fetch(url).then(response => {
     console.log(error);
   }
 )
+
+document.querySelector('.categories').innerHTML = categories;
+let cat = document.querySelector('.categories')
+cat.addEventListener('click', ()=>{
+  console.log(cat.children.textContent);
+})
