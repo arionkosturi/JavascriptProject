@@ -103,9 +103,11 @@ const categoriesData =
     opinion: 'assets/img/opinion.jpeg',
   }
 
-    for (let cat of Object.keys(categoriesData)) {
-      console.log(categoriesData[cat]);
+    for (const [key, value] of Object.entries(categoriesData)) {
+      
+      // const categoryImg = categoriesData[cat];
 
+      console.log(key, value)
     }
  
   // console.log(categoriesData.categoryName[0]);
