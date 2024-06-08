@@ -7,7 +7,7 @@ export const categories = `
       <div
         class="relative xl:flex gap-1 grid grid-cols-2 md:grid-cols-3 mx-auto mt-2 cursor-pointer ms-1"
       >
-        <div class="relative order-1 w-[99%] group">
+        <div class="relative category order-1 w-[99%] group">
           <img
             src="assets/img/science.jpg"
             class="block opacity-100 group-hover:opacity-80 w-80 h-52"
@@ -92,3 +92,20 @@ export const categories = `
     </div>
     <!-- ./Categories -->
 `
+
+const categoriesData = 
+   {
+    science: 'assets/img/science.jpg',
+    entertainment: 'assets/img/entertainment.jpeg',
+    sports: 'assets/img/sports.webp',
+    politics: 'assets/img/politics.webp',
+    finance: 'assets/img/finance.webp',
+    opinion: 'assets/img/opinion.jpeg',
+  }
+
+    for (let cat of Object.keys(categoriesData)) {
+      console.log(categoriesData[cat]);
+
+    }
+ 
+  // console.log(categoriesData.categoryName[0]);

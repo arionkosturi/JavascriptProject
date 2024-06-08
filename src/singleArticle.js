@@ -1,6 +1,7 @@
 import { 
   singleArticleElement,
-  url
+  url,
+  categoriesElement
  } from './common.js'
 import { categories } from "./modules/categories.js";
 let artikull = [];
@@ -57,4 +58,10 @@ let artikull = [];
   })
   })
 
-  document.querySelector('.categories').innerHTML = categories;
+categoriesElement.innerHTML = categories;
+categoriesElement.addEventListener('click', (e) =>
+{
+  e.preventDefault();
+  console.log(e.target.closest('.category').textContent);
+}
+)
