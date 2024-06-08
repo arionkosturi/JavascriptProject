@@ -78,39 +78,42 @@ articles.forEach(article=>{
         let mainNewsRightSideHTML = ` <div 
           class="flex artikull mt-2 bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
           <img src="${artikull[i].urlToImage}" class="w-1/3" alt="" />
-          <p id=${i} class="m-1 dark:text-gray-300">
+          <p id=${i} class="m-1 dark:text-gray-300 text-md line-clamp-3">
             ${artikull[i].title}
           </p>
         </div>`
   mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
        
       }
-      mainNewsRightSideElement.addEventListener('click', e => {
-        e.preventDefault();
-        e.target.closest('#id');
-
-       let id = e.target.getAttribute('id') ?? 0;
-
-       let mainNewsHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
-          <img src="${artikull[id].urlToImage}" alt="" class="opacity-90" />
+      mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+          <img src="${artikull[0].urlToImage}" alt="" class="opacity-90" />
           <div
             class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
           >
-            <h3 class="p-2 md:text-lg">
-             ${artikull[id].title}
+            <h3 class="p-2 md:text-xl  ">
+             ${artikull[0].title}
             </h3>
           </div>
-        </div>
-`
-id=0;
-mainNewsElement.insertAdjacentHTML('afterbegin', mainNewsHTML);
+        </div>`
+      mainNewsRightSideElement.addEventListener('click', e => {
+        e.preventDefault();
+        e.target.closest('#id');
+        let id = 0;
+       id = e.target.getAttribute('id');
+
+    mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+          <img src="${artikull[id]?.urlToImage}" alt="" class="opacity-90" />
+          <div
+            class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
+          >
+            <h3 class="p-2 md:text-xl  ">
+             ${artikull[id]?.title}
+            </h3>
+          </div>
+        </div>`;
       })
       
-
-
-
 }
-
 
 )
 .catch(
@@ -118,6 +121,3 @@ mainNewsElement.insertAdjacentHTML('afterbegin', mainNewsHTML);
     console.log(error);
   }
 )
-// article.innerHTML = `${data}`
-
-
