@@ -1,27 +1,26 @@
-import {API_KEY} from './env.js'
 import { mainNewsElement,
-  mainNewsRightSideElement
+  mainNewsRightSideElement,
+  articleElement,
+  url
  } from './common.js'
-const articleElement = document.querySelector('.realtime');
-
-const url = `https://newsapi.org/v2/
-top-headlines?country=us&apiKey=${API_KEY}`
 
 let artikull = [];
+
 fetch(url).then(response => {
   if(!response.ok) {
      console.log('Something went wrong');
      return;
    }
-  
    return response.json();
 })
 .then(data => {
   const { articles } = data;
+
   articles.forEach(article=>{
     const { title, urlToImage, description} = article;
     if (description == null) return;
     if (description == '[Removed]') return;
+    artikull.push({title, description, urlToImage})
 
     const img = urlToImage ?? 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freeiconspng.com%2Fuploads%2Fno-image-icon-11.PNG&f=1&nofb=1&ipt=b07d73c8fd18162a2f40a515ab49c82baedddf0f43df51447312d3def47bb6b7&ipo=images'
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
@@ -55,35 +54,21 @@ fetch(url).then(response => {
       </div>
     </div>
   </article>`
-  articleElement.insertAdjacentHTML('afterbegin',articleHTML)  ;  
+  articleElement.insertAdjacentHTML('beforeend',articleHTML)  ;  
    
 }) 
+
 // render mainNews top5
-
-
-articles.forEach(article=>{
-  let { title, urlToImage, description} = article;
-  if (description == null) return;
-  if (urlToImage == null) return;
-  if (description == '[Removed]') return;
-  artikull.push({title, description, urlToImage})
-
-})
-
-
-
-
-    for(let i=0; i<5; i++)
+  for(let i=0; i<5; i++)
       {
         let mainNewsRightSideHTML = ` <div 
-          class="flex artikull mt-2 bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
+          class="flex artikull mt-2  bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
           <img src="${artikull[i].urlToImage}" class="w-1/3" alt="" />
-          <p id=${i} class="m-1 dark:text-gray-300 text-md line-clamp-3">
+          <p id=${i} class="m-1  dark:text-gray-300 text-md lg:text-lg line-clamp-2">
             ${artikull[i].title}
           </p>
         </div>`
-  mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
-       
+      mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
       }
       mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
           <img src="${artikull[0].urlToImage}" alt="" class="opacity-90" />
@@ -99,22 +84,20 @@ articles.forEach(article=>{
         e.preventDefault();
         e.target.closest('#id');
         let id = 0;
-       id = e.target.getAttribute('id');
+        id = e.target.getAttribute('id');
 
     mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
-          <img src="${artikull[id]?.urlToImage}" alt="" class="opacity-90" />
+          <img src="${artikull[id].urlToImage}" alt="" class="opacity-90" />
           <div
             class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
           >
-            <h3 class="p-2 md:text-xl  ">
-             ${artikull[id]?.title}
+            <h3 class="p-1 md:text-xl line-clamp-2 ">
+             ${artikull[id].title}
             </h3>
           </div>
         </div>`;
       })
-      
 }
-
 )
 .catch(
   error => {
