@@ -1,22 +1,25 @@
 import {API_KEY} from './env.js'
-import { mainNews } from './mainNews.js'
-import { mainNewsElement } from './common.js'
+import { mainNewsElement,
+  mainNewsRightSideElement
+ } from './common.js'
 const articleElement = document.querySelector('.realtime');
 
 const url = `https://newsapi.org/v2/
 top-headlines?country=us&apiKey=${API_KEY}`
 
+let artikull = [];
 fetch(url).then(response => {
   if(!response.ok) {
      console.log('Something went wrong');
      return;
    }
+  
    return response.json();
 })
 .then(data => {
-  const { articles } = data
+  const { articles } = data;
   articles.forEach(article=>{
-    const { title, author, urlToImage, description} = article;
+    const { title, urlToImage, description} = article;
     if (description == null) return;
     if (description == '[Removed]') return;
 
@@ -52,14 +55,69 @@ fetch(url).then(response => {
       </div>
     </div>
   </article>`
-  articleElement.insertAdjacentHTML('afterbegin',articleHTML)  ;  })  
+  articleElement.insertAdjacentHTML('afterbegin',articleHTML)  ;  
+   
+}) 
+// render mainNews top5
+
+
+articles.forEach(article=>{
+  let { title, urlToImage, description} = article;
+  if (description == null) return;
+  if (urlToImage == null) return;
+  if (description == '[Removed]') return;
+  artikull.push({title, description, urlToImage})
+
+})
+
+
+
+
+    for(let i=0; i<5; i++)
+      {
+        let mainNewsRightSideHTML = ` <div 
+          class="flex artikull mt-2 bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
+          <img src="${artikull[i].urlToImage}" class="w-1/3" alt="" />
+          <p id=${i} class="m-1 dark:text-gray-300">
+            ${artikull[i].title}
+          </p>
+        </div>`
+  mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
+       
+      }
+      mainNewsRightSideElement.addEventListener('click', e => {
+        e.preventDefault();
+        e.target.closest('#id');
+
+       let id = e.target.getAttribute('id') ?? 0;
+
+       let mainNewsHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+          <img src="${artikull[id].urlToImage}" alt="" class="opacity-90" />
+          <div
+            class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
+          >
+            <h3 class="p-2 md:text-lg">
+             ${artikull[id].title}
+            </h3>
+          </div>
+        </div>
+`
+id=0;
+mainNewsElement.insertAdjacentHTML('afterbegin', mainNewsHTML);
+      })
+      
+
+
+
 }
+
+
 )
 .catch(
   error => {
     console.log(error);
   }
 )
-
 // article.innerHTML = `${data}`
-mainNewsElement.insertAdjacentHTML('afterbegin', mainNews);
+
+

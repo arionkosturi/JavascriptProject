@@ -818,24 +818,8 @@ video {
   height: 13rem;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
 .h-px {
   height: 1px;
-}
-
-.h-36 {
-  height: 9rem;
-}
-
-.h-64 {
-  height: 16rem;
-}
-
-.h-48 {
-  height: 12rem;
 }
 
 .min-h-96 {
@@ -1166,14 +1150,6 @@ video {
 
 .pb-5 {
   padding-bottom: 1.25rem;
-}
-
-.pt-5 {
-  padding-top: 1.25rem;
-}
-
-.pt-1 {
-  padding-top: 0.25rem;
 }
 
 .text-left {
