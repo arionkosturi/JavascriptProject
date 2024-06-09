@@ -1,6 +1,7 @@
 import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
+  categoriesElement,
   url } from './common.js'
 
 import categoriesHTML from "./modules/categories.js";
@@ -83,11 +84,10 @@ fetch(url).then(response => {
         </div>`
       mainNewsRightSideElement.addEventListener('click', e => {
         e.preventDefault();
-        e.target.closest('#id');
         let id = 0;
         id = e.target.getAttribute('id');
 
-    mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+    mainNewsElement.innerHTML = `<div id="${id} class="opacity-95 hover:opacity-100 mr-2">
           <img src="${artikull[id].urlToImage}" alt="" class="opacity-90" />
           <div
             class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
@@ -106,9 +106,13 @@ fetch(url).then(response => {
   }
 )
 
-document.querySelector('.categories').insertAdjacentHTML('beforebegin', categoriesHTML );
-let cat = document.querySelector('.categories')
-cat.addEventListener('click', ()=>{
-  // console.log(cat.children.textContent);
+categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
+// categoriesElement.addEventListener('click', e => {
+//   e.target.preventDefault();
+//   console.log(categoriesElement.textContent);  
+
+// })
+document.addEventListener('click', e => {
+  e.preventDefault();
+  console.log(e.target);
 })
-// console.log();

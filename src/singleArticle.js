@@ -62,6 +62,6 @@ categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML);
 categoriesElement.addEventListener('click', (e) =>
 {
   e.preventDefault();
-  console.log(e.target.closest('.category').textContent);
+  console.log('test');
 }
 )
