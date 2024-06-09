@@ -2,7 +2,8 @@ import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
   url } from './common.js'
-import { categories } from "./modules/categories.js";
+
+import categoriesHTML from "./modules/categories.js";
 let artikull = [];
 
 fetch(url).then(response => {
@@ -105,8 +106,9 @@ fetch(url).then(response => {
   }
 )
 
-document.querySelector('.categories').innerHTML = categories;
+document.querySelector('.categories').insertAdjacentHTML('beforebegin', categoriesHTML );
 let cat = document.querySelector('.categories')
 cat.addEventListener('click', ()=>{
-  console.log(cat.children.textContent);
+  // console.log(cat.children.textContent);
 })
+// console.log();

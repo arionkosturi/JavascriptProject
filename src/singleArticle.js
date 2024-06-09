@@ -3,8 +3,8 @@ import {
   url,
   categoriesElement
  } from './common.js'
-import { categories } from "./modules/categories.js";
-let artikull = [];
+ import categoriesHTML from "./modules/categories.js";
+ let artikull = [];
   fetch(url).then(response => {
     if(!response.ok) {
        console.log('Something went wrong');
@@ -58,7 +58,7 @@ let artikull = [];
   })
   })
 
-categoriesElement.innerHTML = categories;
+categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML);
 categoriesElement.addEventListener('click', (e) =>
 {
   e.preventDefault();
