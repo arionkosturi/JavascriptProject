@@ -31,7 +31,7 @@ let categoriesHTML = [];
 export const categories = categoriesData.forEach((category)=>{
 
   let {Image, Name} = category;
-  categoriesHTML += `<div class="relative w-[99%] group">
+  categoriesHTML += `<div class="individualCategory relative w-[99%] group">
   <img
     src="${Image}"
     class="block opacity-100 group-hover:opacity-80 w-80 h-52"

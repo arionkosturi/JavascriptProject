@@ -18,7 +18,7 @@ export default renderRealtime = articles.forEach(article=>{
         </h3>
       </a>
 
-      <p> ${description}
+      <p> ${description} 
       </p>
     </div>
 
@@ -27,7 +27,7 @@ export default renderRealtime = articles.forEach(article=>{
         href="#"
         class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
       >
-      Lexo me shume
+      Lexo
     </a>
     </div>
   </div>

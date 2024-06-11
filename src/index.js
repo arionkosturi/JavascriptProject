@@ -18,13 +18,13 @@ fetch(url).then(response => {
   const { articles } = data;
 
   articles.forEach(article=>{
-    const { title, urlToImage, description} = article;
+    const { title, urlToImage, description, article_id} = article;
     if (description == null) return;
     if (description == '[Removed]') return;
     if (urlToImage == null) return;
 
     artikull.push({title, description, urlToImage})
-
+    console.log(article);
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     <div class="flex flex-row w-1/2">
       <img alt="" src=${urlToImage} class="w-full h-34 p-1" />
@@ -48,10 +48,10 @@ fetch(url).then(response => {
 
       <div class="sm:flex sm:justify-end sm:items-end">
         <a
-          href="#"
+          href="/${article.indexOf}"
           class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
         >
-        Lexo me shume
+        Lexo
       </a>
       </div>
     </div>
@@ -112,7 +112,3 @@ categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 //   console.log(categoriesElement.textContent);  
 
 // })
-document.addEventListener('click', e => {
-  e.preventDefault();
-  console.log(e.target);
-})
