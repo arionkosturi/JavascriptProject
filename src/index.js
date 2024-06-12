@@ -6,6 +6,10 @@ import { mainNewsElement,
 
 import categoriesHTML from "./modules/categories.js";
 let artikull = [];
+import {apiData} from './testapi.js'
+
+let params = new URLSearchParams(document.location.href.split("?")[1])
+let id = params.get("id") 
 
 fetch(url).then(response => {
   if(!response.ok) {
@@ -18,13 +22,13 @@ fetch(url).then(response => {
   const { articles } = data;
 
   articles.forEach(article=>{
-    const { title, urlToImage, description, article_id} = article;
+    const { title, urlToImage, description} = article;
     if (description == null) return;
     if (description == '[Removed]') return;
     if (urlToImage == null) return;
 
     artikull.push({title, description, urlToImage})
-    console.log(article);
+    // console.log(article);
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     <div class="flex flex-row w-1/2">
       <img alt="" src=${urlToImage} class="w-full h-34 p-1" />
@@ -48,7 +52,7 @@ fetch(url).then(response => {
 
       <div class="sm:flex sm:justify-end sm:items-end">
         <a
-          href="/${article.indexOf}"
+          href="?id=${apiData.articles[2].articleId}"
           class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
         >
         Lexo
@@ -112,3 +116,5 @@ categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 //   console.log(categoriesElement.textContent);  
 
 // })
+
+console.log(apiData.articles[0].articleId);

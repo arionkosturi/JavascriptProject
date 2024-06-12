@@ -11,3 +11,5 @@ top-headlines
 &category=${category}
 &apiKey=${API_KEY}`
 import {API_KEY} from './env.js'
+
+export const localApi = `127.0.0.1:3001/news`
