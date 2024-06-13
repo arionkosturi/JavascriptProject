@@ -84,13 +84,15 @@ fetch(localApi).then(response => {
       </div>
     </div>`
 
-    
+   
 })
 
 mainNewsRightSideElement.addEventListener('click', e => {
   e.preventDefault();
   let id = e.target.getAttribute('id');
-  
+  console.log(id);
+
+
 
 mainNewsElement.innerHTML = `<div id="${id} class="opacity-95 hover:opacity-100 mr-2">
     <img src="" alt="" class="opacity-90" />
