@@ -3,6 +3,7 @@ import { mainNewsElement,
   articleElement,
   categoriesElement,
   localApi } from './common.js'
+import renderLocalTopFive from "./modules/localTopFive.js";
 import categoriesHTML from "./modules/categories.js";
 let artikull = [];
 
@@ -18,18 +19,16 @@ fetch(localApi).then(response => {
    return response.json();
 }).then(data=>{
   const { articles } = data;
-  console.log(data);
 
 
 
   articles.forEach(article=>{
-    console.log(article.imageUrl);
     // const { title, urlToImage, description} = article;
     // if (description == null) return;
     // if (description == '[Removed]') return;
     // if (urlToImage == null) return;
     // artikull.push({title, description, urlToImage})
-    // console.log(article);
+
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     <div class="flex flex-row w-1/2">
       <img alt="" src=${article.imageUrl} class="w-full h-34 p-1" />
@@ -61,61 +60,63 @@ fetch(localApi).then(response => {
       </div>
     </div>
   </article>`
-  articleElement.insertAdjacentHTML('beforeend',articleHTML)  ;  
+  articleElement.insertAdjacentHTML('beforeend',articleHTML)  ; 
+    
+})
+  articles.slice(0,5).forEach(article => {
+      let mainNewsRightSideHTML = ` <div 
+      class="flex artikull mt-2  bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
+      <img src="${article.imageUrl}" class="w-1/3" alt="" />
+      <p id=${article.articleId} class="m-1  dark:text-gray-300 text-md lg:text-lg line-clamp-2">
+        
+      ${article.title}
+      </p>
+    </div>`
+  mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
+  mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+      <img src="${article.imageUrl}" alt="" class="opacity-90" />
+      <div
+        class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
+      >
+        <h3 class="p-2 md:text-xl  ">
+         ${article.title}
+        </h3>
+      </div>
+    </div>`
+
+    
 })
 
+mainNewsRightSideElement.addEventListener('click', e => {
+  e.preventDefault();
+  let id = e.target.getAttribute('id');
+  
+
+mainNewsElement.innerHTML = `<div id="${id} class="opacity-95 hover:opacity-100 mr-2">
+    <img src="" alt="" class="opacity-90" />
+    <div
+      class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
+    >
+      <h3 class="p-1 md:text-xl line-clamp-2 ">
+       {article.title}
+      </h3>
+    </div>
+  </div>`;
+
+//   }
+
+
+//   }) 
 })
 // render mainNews top5
-//   for(let i=0; i<5; i++)
-//       {
-//         let mainNewsRightSideHTML = ` <div 
-//           class="flex artikull mt-2  bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
-//           <img src="{artikull[i].urlToImage}" class="w-1/3" alt="" />
-//           <p id=${i} class="m-1  dark:text-gray-300 text-md lg:text-lg line-clamp-2">
-//             {artikull[i].title}
-//           </p>
-//         </div>`
-//       mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
-//       }
-//       mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
-//           <img src="{artikull[0].urlToImage}" alt="" class="opacity-90" />
-//           <div
-//             class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
-//           >
-//             <h3 class="p-2 md:text-xl  ">
-//              {artikull[0].title}
-//             </h3>
-//           </div>
-//         </div>`
-//       mainNewsRightSideElement.addEventListener('click', e => {
-//         e.preventDefault();
-//         let id = 0;
-//         id = e.target.getAttribute('id');
 
-//     mainNewsElement.innerHTML = `<div id="${id} class="opacity-95 hover:opacity-100 mr-2">
-//           <img src="{artikull[id].urlToImage}" alt="" class="opacity-90" />
-//           <div
-//             class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
-//           >
-//             <h3 class="p-1 md:text-xl line-clamp-2 ">
-//              {artikull[id].title}
-//             </h3>
-//           </div>
-//         </div>`;
-//       })
 // // }
 // // )
-.catch(
-  error => {
-    console.log(error);
-  }
-)
-
+// .catch(
+//   error => {
+//     console.log(error);
+//   }
+// )
+// renderLocalTopFive();
 categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
-// // categoriesElement.addEventListener('click', e => {
-// //   e.target.preventDefault();
-// //   console.log(categoriesElement.textContent);  
-
-// // })
-
-// // console.log(apiData.articles[0].articleId);
+})
