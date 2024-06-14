@@ -15,12 +15,11 @@ headerElement.insertAdjacentHTML('afterbegin',headerHTML);
 // Footer
 import { footerHTML } from './components/Footer.js'
 footerElement.insertAdjacentHTML('afterbegin',footerHTML);
+// Categories
+categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 
 
 let artikull = [];
-
-// let params = new URLSearchParams(document.location.href.split("?")[1])
-// let id = params.get("id") 
 
 fetch(localApi).then(response => {
   if(!response.ok) {
@@ -78,9 +77,9 @@ for(let i=0; i<5; i++)
   { 
     artikull.push(state.articles[i])
     let mainNewsRightSideHTML = ` <div id=${i}
-      class="flex artikull mt-2  bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
-      <img src="${artikull[i].imgUrl}" class="w-1/3" alt="" />
-      <p id=${i} class="m-1  dark:text-gray-300 text-md lg:text-lg line-clamp-2">
+      class="flex mt-2 lg:mt-0 artikull bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
+      <img src="${artikull[i].imgUrl}" class="w-1/3 hover:cursor-default" alt="" />
+      <p id=${i} class="p-1  dark:text-gray-300 text-sm lg:text-md line-clamp-2">
         ${artikull[i].title}
       </p>
     </div>`
@@ -113,13 +112,10 @@ mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
     </div>`;
   })
 
-// // }
-// // )
-// .catch(
-//   error => {
-//     console.log(error);
-//   }
-// )
-// renderLocalTopFive();
-categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
+
+.catch(
+  error => {
+    console.log(error);
+  }
+)
 })

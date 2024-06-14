@@ -1,9 +1,21 @@
 import { 
   singleArticleElement,
+  headerElement,
+  footerElement,
   url,
   categoriesElement
  } from './common.js'
+ 
+ // Header
+import { headerHTML } from './components/Header.js'
+headerElement.insertAdjacentHTML('afterbegin',headerHTML);
+// Footer
+import { footerHTML } from './components/Footer.js'
+footerElement.insertAdjacentHTML('afterbegin',footerHTML);
+
+ 
  import categoriesHTML from "./modules/categories.js";
+ 
  let artikull = [];
   fetch(url).then(response => {
     if(!response.ok) {
