@@ -2,6 +2,7 @@ import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
   categoriesElement,
+  state,
   localApi } from './common.js'
 import renderLocalTopFive from "./modules/localTopFive.js";
 import categoriesHTML from "./modules/categories.js";
@@ -18,11 +19,9 @@ fetch(localApi).then(response => {
 
    return response.json();
 }).then(data=>{
-  const { articles } = data;
+  state.articles = data
 
-
-
-  articles.forEach(article=>{
+  state.articles.forEach(article=>{
     // const { title, urlToImage, description} = article;
     // if (description == null) return;
     // if (description == '[Removed]') return;
@@ -31,7 +30,7 @@ fetch(localApi).then(response => {
 
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     <div class="flex flex-row w-1/2">
-      <img alt="" src=${article.imageUrl} class="w-full h-34 p-1" />
+      <img alt="" src=${article.imgUrl} class="w-full h-34 p-1" />
     </div>
 
     <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
@@ -52,7 +51,7 @@ fetch(localApi).then(response => {
 
       <div class="sm:flex sm:justify-end sm:items-end">
         <a
-          href="?id=${article.articleId}"
+          href="?id=${article._id}"
           class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
         >
         Lexo
@@ -63,54 +62,71 @@ fetch(localApi).then(response => {
   articleElement.insertAdjacentHTML('beforeend',articleHTML)  ; 
     
 })
-  articles.slice(0,5).forEach(article => {
-      let mainNewsRightSideHTML = ` <div 
-      class="flex artikull mt-2  bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
-      <img src="${article.imageUrl}" class="w-1/3" alt="" />
-      <p id=${article.articleId} class="m-1  dark:text-gray-300 text-md lg:text-lg line-clamp-2">
+//   state.articles.slice(0,5).forEach(article => {
+//       let mainNewsRightSideHTML = ` <div 
+//       class="flex artikull mt-2  bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
+//       <img src="${article.imgUrl}" class="w-1/3" alt="" />
+//       <p id=${article._id} class="m-1  dark:text-gray-300 text-md lg:text-lg line-clamp-2">
         
-      ${article.title}
+//       ${article.title}
+//       </p>
+//     </div>`
+//   mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
+//   mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+//       <img src="${article.imgUrl}" alt="" class="opacity-90" />
+//       <div
+//         class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
+//       >
+//         <h3 class="p-2 md:text-xl  ">
+//          ${article.title}
+//         </h3>
+//       </div>
+//     </div>`
+
+   
+// })
+// render mainNews top5
+for(let i=0; i<5; i++)
+  { 
+    artikull.push(state.articles[i])
+    let mainNewsRightSideHTML = ` <div 
+      class="flex artikull mt-2  bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
+      <img src="${artikull[i].imgUrl}" class="w-1/3" alt="" />
+      <p id=${i} class="m-1  dark:text-gray-300 text-md lg:text-lg line-clamp-2">
+        ${artikull[i].title}
       </p>
     </div>`
   mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
+
   mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
-      <img src="${article.imageUrl}" alt="" class="opacity-90" />
+  <img src="${artikull[0].imgUrl}" alt="" class="opacity-90" />
       <div
         class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
-      >
-        <h3 class="p-2 md:text-xl  ">
-         ${article.title}
+        <h3 class="p-2 md:text-5xl text-gray">
+         ${artikull[0].title}
         </h3>
       </div>
     </div>`
+  
 
-   
-})
-
+  
+}
 mainNewsRightSideElement.addEventListener('click', e => {
-  e.preventDefault();
-  let id = e.target.getAttribute('id');
-  console.log(id);
-
-
+    e.preventDefault();
+    let id = 0;
+    id = e.target.getAttribute('id');
 
 mainNewsElement.innerHTML = `<div id="${id} class="opacity-95 hover:opacity-100 mr-2">
-    <img src="" alt="" class="opacity-90" />
-    <div
-      class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
-    >
-      <h3 class="p-1 md:text-xl line-clamp-2 ">
-       {article.title}
-      </h3>
-    </div>
-  </div>`;
-
-//   }
-
-
-//   }) 
-})
-// render mainNews top5
+      <img src="${artikull[id].imgUrl}" alt="" class="opacity-90" />
+      <div
+        class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white">
+        <h3 class="p-1 md:text-xl line-clamp-2 ">
+         ${artikull[id].title}
+        </h3>
+      </div>
+    </div>`;
+    console.log(artikull[id].title);
+  })
 
 // // }
 // // )

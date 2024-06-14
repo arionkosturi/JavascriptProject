@@ -11,5 +11,9 @@ top-headlines
 &category=${category}
 &apiKey=${API_KEY}`
 import {API_KEY} from './env.js'
-
-export const localApi = `http://localhost:3001/news/`
+export const state = {
+  articles: {},
+  topFive: {}
+}
+export const localApi = `http://localhost:3344/news`
+export const topFiveUrl = `http://127.0.0.1:3344/news/top`

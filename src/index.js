@@ -6,7 +6,6 @@ import { mainNewsElement,
 
 import categoriesHTML from "./modules/categories.js";
 let artikull = [];
-import {apiData} from './testapi.js'
 
 let params = new URLSearchParams(document.location.href.split("?")[1])
 let id = params.get("id") 
@@ -52,7 +51,7 @@ fetch(url).then(response => {
 
       <div class="sm:flex sm:justify-end sm:items-end">
         <a
-          href="?id=${apiData.articles[2].articleId}"
+          href="?id="
           class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
         >
         Lexo
@@ -117,4 +116,4 @@ categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 
 // })
 
-console.log(apiData.articles[0].articleId);
+console.log(articles[0].articleId);
