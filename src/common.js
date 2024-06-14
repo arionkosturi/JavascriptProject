@@ -5,6 +5,7 @@ export const articleElement = document.querySelector('.realtime');
 export const categoriesElement = document.querySelector('.categories');
 export const categoryElement = document.querySelector('.individualCategory');
 export const headerElement = document.querySelector('header');
+export const footerElement = document.querySelector('footer');
 let category = ''
 export const url = `https://newsapi.org/v2/
 top-headlines
