@@ -16,4 +16,4 @@ export const state = {
   topFive: {}
 }
 export const localApi = `http://localhost:3344/news`
-export const topFiveUrl = `http://127.0.0.1:3344/news/top`
+export const topFiveUrl = `http://localhost:3344/news/top`

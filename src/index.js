@@ -51,7 +51,7 @@ fetch(localApi).then(response => {
 
       <div class="sm:flex sm:justify-end sm:items-end">
         <a
-          href="?id=${article._id}"
+          href="article.html?id=${article._id}"
           class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
         >
         Lexo
