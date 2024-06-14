@@ -2,10 +2,16 @@ import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
   categoriesElement,
+  headerElement,
   state,
   localApi } from './common.js'
 import renderLocalTopFive from "./modules/localTopFive.js";
 import categoriesHTML from "./modules/categories.js";
+
+// Header
+import { headerHTML } from './components/Header.js'
+ headerElement.insertAdjacentHTML('afterbegin',headerHTML);
+
 let artikull = [];
 
 // let params = new URLSearchParams(document.location.href.split("?")[1])

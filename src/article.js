@@ -1,11 +1,13 @@
 import { 
+  headerElement,
   singleArticleElement,
   localApi,
   categoriesElement
  } from './common.js'
  import categoriesHTML from "./modules/categories.js";
-
-
+ 
+ import { headerHTML } from './components/Header.js'
+ headerElement.insertAdjacentHTML('afterbegin',headerHTML);
 function getArticle(id) {
   fetch(`${localApi}/${id.id}`).then(response =>{
     if(!response.ok) {
