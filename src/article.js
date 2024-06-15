@@ -33,7 +33,7 @@ function getArticle(id) {
         <div class="mt-8 lg:-mx-6">
             <img class="object-cover w-full lg:mx-6 rounded-xl h-72 lg:h-96" src="${data.imgUrl}"alt="">
             <div class="mt-6  lg:mt-0 lg:mx-6 ">
-                <p class="text-lg p-2 text-purple-700 font-bold uppercase">${data.category}</p>
+              <a href='category.html?category=${data.category}'>  <p class="text-lg p-2 text-purple-700 font-bold uppercase">${data.category}</p>
                 <p class="block mt-4 text-3xl font-semibold text-gray-800 dark:text-white">
                     ${data.description}
                 </p>

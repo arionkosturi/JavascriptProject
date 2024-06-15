@@ -48,7 +48,7 @@ export const headerHTML = `
               >
               <a
                 class="hover:bg-purple-600 sm:px-2 text-md hover:text-white transition-all duration-300 ease-in-out"
-                href="#"
+                href="category.html?category=Finance"
                 >Finance</a
               >
               <a
@@ -122,4 +122,42 @@ export const headerHTML = `
           <!-- ./NAVBAR -->
         </div>
       </div>
+
+      <!-- Submenu -->
+    <div
+      class="xl:block top-[76px] z-20 sticky hidden bg-gray-100 dark:bg-neutral-900 text-center"
+    >
+      <span class="mx-2 font-bold text-m dark:text-gray-300">Today's News</span>
+      <a
+        class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
+        href="#"
+        >US</a
+      >
+      <a
+        class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
+        href="#"
+        >Politics</a
+      >
+      <a
+        class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
+        href="#"
+        >World</a
+      >
+      <a
+        class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
+        href="category.html?category=Science"
+        >Science</a
+      >
+      <a
+        class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
+        href="#"
+        >Originals</a
+      >
+      <a
+        class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
+        href="#"
+        >Contact</a
+      >
+    </div>
+    <!-- ./Submenu -->
   `

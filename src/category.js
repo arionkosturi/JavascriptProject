@@ -27,7 +27,7 @@ function getCategory(categoryName) {
     
     return response.json();
   }).then(data =>{
-    console.log(data);
+    articlesCategoryElement.innerHTML = `<div class="mt-6 text-4xl font-bold p-2 text-purple-700">${categoryName.category}</div>`
     data.forEach(data =>{
       let articlesByCategoryHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
       <div class="flex flex-row w-1/2">
@@ -60,7 +60,7 @@ function getCategory(categoryName) {
         </div>
       </div>
     </article>`
-    articlesCategoryElement.innerHTML = articlesByCategoryHTML;
+    articlesCategoryElement.insertAdjacentHTML('beforeend', articlesByCategoryHTML);
 
     })
     
