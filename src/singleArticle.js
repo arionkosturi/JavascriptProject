@@ -2,7 +2,6 @@ import {
   singleArticleElement,
   headerElement,
   footerElement,
-  url,
   categoriesElement
  } from './common.js'
  

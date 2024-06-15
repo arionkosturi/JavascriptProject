@@ -6,13 +6,13 @@ export const categoriesElement = document.querySelector('.categories');
 export const categoryElement = document.querySelector('.individualCategory');
 export const headerElement = document.querySelector('header');
 export const footerElement = document.querySelector('footer');
+export const articlesCategoryElement = document.querySelector('.articles_by_category');
 let category = ''
-export const url = `https://newsapi.org/v2/
-top-headlines
-?country=us
-&category=${category}
-&apiKey=${API_KEY}`
-import {API_KEY} from './env.js'
+// export const url = `https://newsapi.org/v2/
+// top-headlines
+// &category=${category}
+// &apiKey=${API_KEY}`
+// import {API_KEY} from './env.js'
 export const state = {
   articles: {},
   topFive: {}

@@ -2,11 +2,11 @@ import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
   categoriesElement,
+  categoryElement,
   headerElement,
   footerElement,
   state,
   localApi } from './common.js'
-import renderLocalTopFive from "./modules/localTopFive.js";
 import categoriesHTML from "./modules/categories.js";
 
 // Header
