@@ -110,6 +110,7 @@ mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
         </h3>
       </div>
     </div>`;
+    window.scrollTo(0, 0);
   })
 
 
