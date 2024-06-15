@@ -28,6 +28,7 @@ fetch(localApi).then(response => {
    }
 
    return response.json();
+
 }).then(data=>{
   state.articles = data
 
@@ -100,8 +101,7 @@ mainNewsRightSideElement.addEventListener('click', e => {
     let id = 0;
     id = e.target.getAttribute('id');
       // id = e.target.parent.parent('id');
-      console.log(e.target.parent);
-mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
+      mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
       <img src="${artikull[id].imgUrl}" alt="" class="opacity-90" />
       <div 
         class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white">
@@ -113,10 +113,8 @@ mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
     window.scrollTo(0, 0);
   })
 
-
-.catch(
+}).catch(
   error => {
     console.log(error);
   }
 )
-})
