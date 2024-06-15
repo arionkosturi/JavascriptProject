@@ -6,7 +6,7 @@ import {
   categoriesElement
  } from './common.js'
  import categoriesHTML from "./modules/categories.js";
- 
+
  // Header
  import { headerHTML } from './components/Header.js'
  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
@@ -18,9 +18,7 @@ footerElement.insertAdjacentHTML('afterbegin',footerHTML);
 // Categories
 categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 
-
-
- function getArticle(id) {
+function getArticle(id) {
   fetch(`${localApi}/${id.id}`).then(response =>{
     if(!response.ok) {
     console.log('Something went wrong');
@@ -72,5 +70,4 @@ if (data.img2Url) {document.querySelector('.img2').innerHTML = `
 }
 export default function article(id) {
   getArticle(id);
-  console.log(id);
 }
