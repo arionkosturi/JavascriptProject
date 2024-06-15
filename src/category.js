@@ -27,9 +27,10 @@ function getCategory(categoryName) {
     
     return response.json();
   }).then(data =>{
-    articlesCategoryElement.innerHTML = `<div class="mt-6 text-4xl font-bold p-2 text-purple-700">${categoryName.category}</div>`
+    let categNameHTML = `<div class="mt-6 text-4xl font-bold p-2 text-purple-700">${categoryName.category}</div>`
+    articlesCategoryElement.insertAdjacentHTML('beforebegin', categNameHTML) 
     data.forEach(data =>{
-      let articlesByCategoryHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
+      let articlesByCategoryHTML = `<article class="flex mr-4 bg-white shadow-xl hover:shadow-xl my-3">
       <div class="flex flex-row w-1/2">
         <img alt="" src=${data.imgUrl} class="w-full h-34 p-1" />
       </div>
