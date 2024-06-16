@@ -2,7 +2,6 @@ import {
   headerElement,
   footerElement,
   localApi,
-  searchFormEl,
   categoriesElement,
   searchedArticlesElement
  } from './common.js'
@@ -10,16 +9,6 @@ import {
  // Header
  import { headerHTML } from './components/Header.js'
  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
-
- // Footer
- import { footerHTML } from './components/Footer.js'
-footerElement.insertAdjacentHTML('afterbegin',footerHTML);
-
-// Categories
-categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
-
-
-
 
 
 
@@ -34,7 +23,7 @@ function getSearchedArticles(q) {
   }).then(data =>{
 
     data.forEach(data =>{
-      let searchedArticlesHTML = `<article class="flex mr-4 bg-white shadow-xl hover:shadow-xl my-3">
+     let searchedArticlesHTML = `<article class="flex mr-4 bg-white shadow-xl hover:shadow-xl my-3">
       <div class="flex flex-row w-1/2">
         <img alt="" src=${data.imgUrl} class="w-full h-34 p-1" />
       </div>
@@ -79,15 +68,20 @@ function getSearchedArticles(q) {
 const searchField = document.querySelector('input')
 searchField.addEventListener('keyup', event => {
             const query = event.target.value
-            let categNameHTML ='';
+            let searchHTML ='';
+        if (event.target.value.length >= 3) {
+
+        
            switch(event.keyCode) {
                 case 13:
-                searchedArticlesElement.insertAdjacentHTML('beforebegin', categNameHTML) 
+                searchedArticlesElement.innerHTML = '';
+                searchedArticlesElement.insertAdjacentHTML('beforebegin', searchHTML) 
                 search({
                       q:query
                     }) 
                 break
             }
+          }
         })
 
 export default function search(q) {

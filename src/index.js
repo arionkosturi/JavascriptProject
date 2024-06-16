@@ -8,13 +8,17 @@ import { mainNewsElement,
   localApi } from './common.js'
 import categoriesHTML from "./modules/categories.js";
 // Header
-import { headerHTML } from './components/Header.js'
-headerElement.insertAdjacentHTML('afterbegin',headerHTML);
+// import { headerHTML } from './components/Header.js'
+// headerElement.insertAdjacentHTML('afterbegin',headerHTML);
+
 // Footer
 import { footerHTML } from './components/Footer.js'
 footerElement.insertAdjacentHTML('afterbegin',footerHTML);
 // Categories
 categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
+
+// Search and Header
+import "./search.js";
 
 
 let artikull = [];

@@ -21,6 +21,7 @@
 
   <body class="dark:bg-neutral-900 mx-auto container">
     <script type="module">
+      import Search from './src/search.js'
       import Article from './src/article.js'
        let params = new URLSearchParams(document.location.href.split("?")[1])
        let id = params.get("id") 
@@ -38,7 +39,12 @@
       
     </header>
     <!-- ./Header -->
+    <!-- Searched Articles -->
+    <div class="grid lg:grid-cols-2 2xl:grid-cols-3 bg-purple-100 mx-1 my-2 searched_articles">
 
+    </div>
+
+    <!-- ./Searched Articles -->
     <!-- Single Article -->
     <div class="grid mx-1 single_article">
 

@@ -8,8 +8,8 @@ import {
  import categoriesHTML from "./modules/categories.js";
 
  // Header
- import { headerHTML } from './components/Header.js'
- headerElement.insertAdjacentHTML('afterbegin',headerHTML);
+//  import { headerHTML } from './components/Header.js'
+//  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
 
  // Footer
  import { footerHTML } from './components/Footer.js'
@@ -27,11 +27,11 @@ function getArticle(id) {
     return response.json();
   }).then(data =>{
     
-    singleArticleElement.innerHTML = `<section class="bg-white dark:bg-gray-900">
+    singleArticleElement.innerHTML = `<section class="bg-white container mx-auto dark:bg-gray-900">
     <div class="container mx-auto">
         <h1 class="text-2xl mt-8 font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">${data.title}</h1>
         <div class="mt-8 lg:-mx-6">
-            <img class="object-cover w-full lg:mx-6 rounded-xl h-72 lg:h-96" src="${data.imgUrl}"alt="">
+            <img class="object-cover w-[90%] lg:mx-6 rounded-xl h-72" src="${data.imgUrl}"alt="">
             <div class="mt-6  lg:mt-0 lg:mx-6 ">
               <a href='category.html?category=${data.category}'>  <p class="text-lg p-2 text-purple-700 font-bold uppercase">${data.category}</p>
                 <p class="block mt-4 text-3xl font-semibold text-gray-800 dark:text-white">
@@ -41,7 +41,7 @@ function getArticle(id) {
                     ${data.content}
                 </p>
                 <p class="my-8 text-lg text-gray-500 dark:text-gray-300 md:text-md content-2"></p>
-                <div class="img2"></div>
+                <div class="img2 w-[90%]"></div>
                 <p class="my-8 text-lg text-gray-500 dark:text-gray-300 md:text-md content-3">
                 </p>
                 <a href="${data.sourceUrl}" target="_blank" class="inline-block mt-2 text-blue-500 underline hover:text-blue-400">Source</a>
@@ -61,7 +61,7 @@ function getArticle(id) {
 if (data.content2) { document.querySelector('.content-2').innerHTML = `${data.content2}` }
 if (data.content3) { document.querySelector('.content-3').innerHTML = `${data.content3}` }
 if (data.img2Url) {document.querySelector('.img2').innerHTML = `
-<img class="object-cover w-full lg:mx-6 rounded-xl h-72 lg:h-96" src="${data.img2Url}"alt="">
+<img class="object-cover w-3/4 lg:mx-6 rounded-xl h-72 lg:h-96" src="${data.img2Url}"alt="">
 ` }
 
 }).catch(err=>{
