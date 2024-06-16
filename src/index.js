@@ -2,7 +2,7 @@ import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
   categoriesElement,
-  headerElement,
+  // headerElement,
   footerElement,
   state,
   localApi } from './common.js'
@@ -89,6 +89,7 @@ for(let i=0; i<=5; i++)
   mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
 
   mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+  <a href="article.html?id=${artikull[0]._id}">
   <img src="${artikull[0].imgUrl}" alt="" class="opacity-90" />
       <div
         class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white"
@@ -96,6 +97,7 @@ for(let i=0; i<=5; i++)
          ${artikull[0].title}
         </h3>
       </div>
+      </a>
     </div>`  
 }
 mainNewsRightSideElement.addEventListener('click', e => {
@@ -103,6 +105,7 @@ mainNewsRightSideElement.addEventListener('click', e => {
     let id = 0;
     id = e.target.getAttribute('id');
       mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
+      <a href="article.html?id=${artikull[id]._id}">
       <img src="${artikull[id].imgUrl}" alt="" class="opacity-90" />
       <div 
         class="relative bg-purple-800 bg-opacity-100 lg:bg-opacity-80 hover:bg-opacity-90 lg:-mt-28 py-2 w-full h-28 text-white">
@@ -110,6 +113,7 @@ mainNewsRightSideElement.addEventListener('click', e => {
          ${artikull[id].title}
         </h3>
       </div>
+      </a>
     </div>`;
     window.scrollTo(0, 0);
   })
@@ -121,4 +125,3 @@ mainNewsRightSideElement.addEventListener('click', e => {
     console.log(error);
   }
 )
-
