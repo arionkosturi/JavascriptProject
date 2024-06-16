@@ -7,7 +7,6 @@ import { mainNewsElement,
   state,
   localApi } from './common.js'
 import categoriesHTML from "./modules/categories.js";
-
 // Header
 import { headerHTML } from './components/Header.js'
 headerElement.insertAdjacentHTML('afterbegin',headerHTML);
@@ -99,7 +98,6 @@ mainNewsRightSideElement.addEventListener('click', e => {
     e.preventDefault();
     let id = 0;
     id = e.target.getAttribute('id');
-      // id = e.target.parent.parent('id');
       mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
       <img src="${artikull[id].imgUrl}" alt="" class="opacity-90" />
       <div 
@@ -112,8 +110,11 @@ mainNewsRightSideElement.addEventListener('click', e => {
     window.scrollTo(0, 0);
   })
 
-}).catch(
+}
+
+).catch(
   error => {
     console.log(error);
   }
 )
+

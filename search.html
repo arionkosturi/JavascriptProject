@@ -16,10 +16,25 @@
     <link rel="stylesheet" href="output.css" />
     <script type="module">
       import Search from './src/search.js'
-       let params = new URLSearchParams(document.location.href.split("?")[1])
+    
+
+// const searchField = document.querySelector('input')
+// searchField.addEventListener('keydown', event => {
+//             const query = event.target.value
+//             switch(event.keyCode) {
+//                 case 13:
+                  
+//                 q = query;
+//                     Search({
+//                       q:query
+//                     }) 
+//                 break
+//             }
+//         })
+        let params = new URLSearchParams(document.location.href.split("?")[1])
        let q = params.get("q") 
        if(q == null) {
-            window.location.href = 'index.html'
+            // window.location.href = 'index.html'
         } else {
             Search({
               q

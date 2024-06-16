@@ -19,18 +19,6 @@ footerElement.insertAdjacentHTML('afterbegin',footerHTML);
 categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 
 
-// Search
-const searchInput = window.document.querySelector('.searchDiv').children[0]
-
-
-searchInput.addEventListener('submit', e => {
-  e.preventDefault();
-  console.log(searchInput.value);
-})
-console.log(searchInput.value);
-
-
-
 
 
 
@@ -44,9 +32,7 @@ function getSearchedArticles(q) {
     
     return response.json();
   }).then(data =>{
-    console.log(data);
-    let categNameHTML = `<div class="mt-6 text-4xl font-bold p-2 text-purple-700">${q.q}</div>`
-    searchedArticlesElement.insertAdjacentHTML('beforebegin', categNameHTML) 
+
     data.forEach(data =>{
       let searchedArticlesHTML = `<article class="flex mr-4 bg-white shadow-xl hover:shadow-xl my-3">
       <div class="flex flex-row w-1/2">
@@ -89,6 +75,22 @@ function getSearchedArticles(q) {
     console.log(err);
   })
 }
+
+const searchField = document.querySelector('input')
+searchField.addEventListener('keyup', event => {
+            const query = event.target.value
+            let categNameHTML ='';
+           switch(event.keyCode) {
+                case 13:
+                searchedArticlesElement.insertAdjacentHTML('beforebegin', categNameHTML) 
+                search({
+                      q:query
+                    }) 
+                break
+            }
+        })
+
 export default function search(q) {
   getSearchedArticles(q);
 }
+

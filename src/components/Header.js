@@ -13,12 +13,12 @@ export const headerHTML = `
               class="searchDiv flex -space-x-16 mx-10 xl:ml-40 rounded-full w-3/5 xl:w-full text-purple-700 group hover:ring ring-purple-300"
             >
               <input
-                type="text"
+                type="search"
                 id="search__input"
                 class=" border-purple-600 bg-white dark:bg-neutral-900 focus:ring-opacity-70 p-2 border border-opacity-30 rounded-full w-full focus:outline-none focus:ring focus:ring-purple-600"
                 placeholder="Search"
               />
-              <form action="search.html?q=" class="search">
+              <form action="#" class="search">
               <button type="submit" class="search__submit-btn">
               <div class="flex text-center">
                 <i
