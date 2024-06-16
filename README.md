@@ -2,6 +2,7 @@
 + [x] Fix categories links in html
 + [x] Implement search functionality
 + [x] Add more articles
-+ [] Add link from main news gallery photo to the selected article
-+ [] Refactor code if possible
-+ [] Fix bugs
++ [x] Add link from main news gallery photo to the selected article
++ [ ] Add Eventlistener to the submit search button 
++ [ ] Refactor code if possible
++ [ ] Fix bugs
