@@ -48,7 +48,7 @@ export const headerHTML = `
             >
               <a
                 class="hover:bg-purple-600 sm:px-2 text-md hover:text-white transition-all duration-300 ease-in-out"
-                href="#"
+                href="category.html?category=News"
                 >News</a
               >
               <a
@@ -58,7 +58,7 @@ export const headerHTML = `
               >
               <a
                 class="hover:bg-purple-600 sm:px-2 text-md hover:text-white transition-all duration-300 ease-in-out"
-                href="#"
+                href="category.html?category=Sports"
                 >Sports</a
               >
               <!-- Dropdown -->
@@ -86,37 +86,37 @@ export const headerHTML = `
                 >
                   <div class="py-1">
                     <a
-                      href="#"
+                      href="category.html?category=News"
                       class="block hover:bg-purple-600 px-4 py-2 text-gray-700 text-sm hover:text-white dark:text-gray-200"
                       >News</a
                     >
                     <a
-                      href="#"
+                      href="category.html?category=Lifestyle"
                       class="block hover:bg-purple-600 px-4 py-2 text-gray-700 text-sm hover:text-white dark:text-gray-200"
-                      >Life</a
+                      >Lifestyle</a
                     >
                     <a
-                      href="#"
+                      href="category.html?category=Entertainment"
                       class="block hover:bg-purple-600 px-4 py-2 text-gray-700 text-sm hover:text-white dark:text-gray-200"
                       >Entertainment</a
                     >
                     <a
-                      href="#"
+                      href="category.html?category=Finance"
                       class="block hover:bg-purple-600 px-4 py-2 text-gray-700 text-sm hover:text-white dark:text-gray-200"
                       >Finance</a
                     >
                     <a
-                      href="#"
+                      href="category.html?category=Sports"
                       class="block hover:bg-purple-600 px-4 py-2 text-gray-700 text-sm hover:text-white dark:text-gray-200"
                       >Sports</a
                     >
                     <a
-                      href="#"
+                      href="category.html?category=Climate"
                       class="block hover:bg-purple-600 px-4 py-2 text-gray-700 text-sm hover:text-white dark:text-gray-200"
                       >Climate Change</a
                     >
                     <a
-                      href="#"
+                      href="category.html?category=Health"
                       class="block hover:bg-purple-600 px-4 py-2 text-gray-700 text-sm hover:text-white dark:text-gray-200"
                       >Health</a
                     >
@@ -135,17 +135,17 @@ export const headerHTML = `
       <span class="mx-2 font-bold text-m dark:text-gray-300">Today's News</span>
       <a
         class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
-        href="#"
+        href="category.html?category=US"
         >US</a
       >
       <a
         class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
-        href="#"
+        href="category.html?category=Politics"
         >Politics</a
       >
       <a
         class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
-        href="#"
+        href="category.html?category=World"
         >World</a
       >
       <a
@@ -155,7 +155,7 @@ export const headerHTML = `
       >
       <a
         class="hover:bg-purple-600 mx-2 text-gray-600 text-m hover:text-white"
-        href="#"
+        href="category.html?category=Originals"
         >Originals</a
       >
       <a

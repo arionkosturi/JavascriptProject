@@ -59,22 +59,22 @@ export const footerHTML = `
                 <h3 class="font-bold text-purple-700 dark:text-white uppercase">
                   REGION
                 </h3>
-                <a href="#" class="block mt-2 hover:text-purple-600">US</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">EU</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">Asia</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">Africa</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">Oceania</a>
+                <a href="category.html?category=US" class="block mt-2 hover:text-purple-600">US</a>
+                <a href="category.html?category=EU" class="block mt-2 hover:text-purple-600">EU</a>
+                <a href="category.html?category=Asia" class="block mt-2 hover:text-purple-600">Asia</a>
+                <a href="category.html?category=Africa" class="block mt-2 hover:text-purple-600">Africa</a>
+                <a href="category.html?category=Oceania" class="block mt-2 hover:text-purple-600">Oceania</a>
               </div>
 
               <div>
                 <h3 class="font-bold text-purple-700 dark:text-white uppercase">
                   CATEGORIES
                 </h3>
-                <a href="#" class="block mt-2 hover:text-purple-600">Science</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">Entertainment</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">Finance</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">Sports</a>
-                <a href="#" class="block mt-2 hover:text-purple-600">Politics</a>
+                <a href="category.html?category=Science" class="block mt-2 hover:text-purple-600">Science</a>
+                <a href="category.html?category=Entertainment" class="block mt-2 hover:text-purple-600">Entertainment</a>
+                <a href="category.html?category=Finance" class="block mt-2 hover:text-purple-600">Finance</a>
+                <a href="category.html?category=Sports" class="block mt-2 hover:text-purple-600">Sports</a>
+                <a href="category.html?category=Politics" class="block mt-2 hover:text-purple-600">Politics</a>
               </div>
 
               <div>

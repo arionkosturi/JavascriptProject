@@ -76,7 +76,7 @@ fetch(localApi).then(response => {
     
 })
 
-for(let i=0; i<5; i++)
+for(let i=0; i<=5; i++)
   { 
     artikull.push(state.articles[i])
     let mainNewsRightSideHTML = ` <div id=${i}
