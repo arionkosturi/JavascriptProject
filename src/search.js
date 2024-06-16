@@ -10,7 +10,7 @@ import {
  import { headerHTML } from './components/Header.js'
  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
 
-
+ 
 
 function getSearchedArticles(q) {
   fetch(`${localApi}/search/${q.q}`).then(response =>{
@@ -23,12 +23,12 @@ function getSearchedArticles(q) {
   }).then(data =>{
 
     data.forEach(data =>{
-     let searchedArticlesHTML = `<article class="flex mr-4 bg-white shadow-xl hover:shadow-xl my-3">
-      <div class="flex flex-row w-1/2">
+     let searchedArticlesHTML = `<article class="flex w-[95%] ml-8 bg-white shadow-xl hover:shadow-xl my-3">
+      <div class="flex flex-row w-1/3">
         <img alt="" src=${data.imgUrl} class="w-full h-34 p-1" />
       </div>
       
-      <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
+      <div class="flex flex-col justify-between dark:bg-neutral-900 w-2/3">
         <div
           class="border-gray-900/10 border-s p-2 sm:p-4 sm:border-l-transparent"
         >
@@ -74,8 +74,10 @@ searchField.addEventListener('keyup', event => {
         
            switch(event.keyCode) {
                 case 13:
-                searchedArticlesElement.innerHTML = '';
-                searchedArticlesElement.insertAdjacentHTML('beforebegin', searchHTML) 
+                searchedArticlesElement.classList.add('p-8')
+                searchedArticlesElement.innerHTML = `<p class="dark:text-white flex"> Searched for: <span class="text-purple-700">${query}</span></p>`;
+                searchedArticlesElement.insertAdjacentHTML('afterbegin', searchHTML) 
+                scrollTo(0,0)
                 search({
                       q:query
                     }) 

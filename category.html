@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="output.css" />
     <script type="module">
+      import './src/search.js'
       import Category from './src/category.js'
        let params = new URLSearchParams(document.location.href.split("?")[1])
        let category = params.get("category") 
@@ -35,12 +36,20 @@
      </header>
      <!-- ./Header -->
 
-    <!-- Single Article -->
+
+     <!-- Searched Articles -->
+     <div class="grid bg-purple-100 mx-1 my-2 searched_articles">
+
+     </div>
+ 
+     <!-- ./Searched Articles -->
+
+    <!-- By Category -->
     <div class="grid lg:grid-cols-2 2xl:grid-cols-3 mx-1 articles_by_category">
 
     </div>
 
-    <!-- ./Single Article -->
+    <!-- ./By Category -->
    
     <!-- Reklama -->
     <section

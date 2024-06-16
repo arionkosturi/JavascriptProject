@@ -8,8 +8,8 @@ import {
  import categoriesHTML from "./modules/categories.js";
 
  // Header
- import { headerHTML } from './components/Header.js'
- headerElement.insertAdjacentHTML('afterbegin',headerHTML);
+//  import { headerHTML } from './components/Header.js'
+//  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
 
  // Footer
  import { footerHTML } from './components/Footer.js'
