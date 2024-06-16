@@ -33,7 +33,7 @@ function getArticle(id) {
         <div class="mt-8 lg:-mx-6">
             <img class="object-cover w-[90%] lg:mx-6 rounded-xl h-72" src="${data.imgUrl}"alt="">
             <div class="mt-6  lg:mt-0 lg:mx-6 ">
-              <a href='category.html?category=${data.category}'>  <p class="text-lg p-2 text-purple-700 font-bold uppercase">${data.category}</p>
+              <a href='category.html?category=${data.category}'>  <p class="text-lg p-2 text-purple-700 font-bold uppercase">${data.category}</p></a>
                 <p class="block mt-4 text-3xl font-semibold text-gray-800 dark:text-white">
                     ${data.description}
                 </p>
@@ -61,7 +61,7 @@ function getArticle(id) {
 if (data.content2) { document.querySelector('.content-2').innerHTML = `${data.content2}` }
 if (data.content3) { document.querySelector('.content-3').innerHTML = `${data.content3}` }
 if (data.img2Url) {document.querySelector('.img2').innerHTML = `
-<img class="object-fill w-3/4 lg:mx-6 rounded-xl h-72 lg:h-96" src="${data.img2Url}"alt="">
+<img class="object-cover w-3/4 lg:mx-6 rounded-xl h-72 lg:h-96" src="${data.img2Url}"alt="">
 ` }
 
 }).catch(err=>{
