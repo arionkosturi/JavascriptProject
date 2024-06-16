@@ -7,7 +7,11 @@ export const categoryElement = document.querySelector('.individualCategory');
 export const headerElement = document.querySelector('header');
 export const footerElement = document.querySelector('footer');
 export const articlesCategoryElement = document.querySelector('.articles_by_category');
-let category = ''
+export const searchFormEl = document.querySelector(".search");
+export const searchInputEl = document.querySelector(".search__input");
+export const searchedArticlesElement = document.querySelector(".searched_articles");
+
+// let category = ''
 // export const url = `https://newsapi.org/v2/
 // top-headlines
 // &category=${category}

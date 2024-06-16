@@ -10,18 +10,23 @@ export const headerHTML = `
 
             <!--Search-->
             <div
-              class="flex -space-x-16 mx-10 xl:ml-40 rounded-full w-3/5 xl:w-full text-purple-700 group hover:ring ring-purple-300"
+              class="searchDiv flex -space-x-16 mx-10 xl:ml-40 rounded-full w-3/5 xl:w-full text-purple-700 group hover:ring ring-purple-300"
             >
               <input
                 type="text"
-                class="border-purple-600 bg-white dark:bg-neutral-900 focus:ring-opacity-70 p-2 border border-opacity-30 rounded-full w-full focus:outline-none focus:ring focus:ring-purple-600"
+                id="search__input"
+                class=" border-purple-600 bg-white dark:bg-neutral-900 focus:ring-opacity-70 p-2 border border-opacity-30 rounded-full w-full focus:outline-none focus:ring focus:ring-purple-600"
                 placeholder="Search"
               />
+              <form action="search.html?q=" class="search">
+              <button type="submit" class="search__submit-btn">
               <div class="flex text-center">
                 <i
                   class="group-hover:bg-purple-600 group-hover:text-white group-active:bg-green-900 bg-purple-300 dark:bg-slate-900 bg-opacity-60 hover:bg-opacity-80 p-2 rounded-full w-16 text-xl hover:text-white fa fa-search"
                 ></i>
               </div>
+              </button>
+              </form>
             </div>
             <!--./Search-->
           <!-- </div> -->
@@ -36,7 +41,7 @@ export const headerHTML = `
 
           <!-- NAVBAR -->
           <nav
-            class="peer-checked:block xl:relative top-16 xl:top-0 absolute xl:flex justify-end md:items-center hidden bg-white dark:bg-neutral-800 shadow-md lg:shadow-none sm:mt-0 xl:mr-10 py-2 w-full"
+            class="peer-checked:block  z-30 xl:relative top-16 xl:top-0 absolute xl:flex justify-end md:items-center hidden bg-white dark:bg-neutral-800 shadow-md lg:shadow-none sm:mt-0 xl:mr-10 py-2 w-full"
           >
             <div
               class="flex xl:flex-row flex-col shadow-md xl:shadow-none mx-4 px-2 text-left text-purple-700"
