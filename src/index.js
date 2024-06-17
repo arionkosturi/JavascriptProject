@@ -4,8 +4,11 @@ import { mainNewsElement,
   categoriesElement,
   footerElement,
   state,
+  prevButton,
+  nextButton,
   localApi } from './common.js'
 import categoriesHTML from "./modules/categories.js";
+import Articles from "./articles.js"
 
 // Footer
 import { footerHTML } from './components/Footer.js'
@@ -18,8 +21,31 @@ import "./search.js";
 
 
 let artikull = [];
+let pageN = 0;
 
-fetch(localApi).then(response => {
+Articles({
+   url: `${localApi}/?p=${pageN}` 
+})
+
+prevButton.addEventListener('click', (e) => {
+   if(pageN > 0) {
+    pageN--;
+
+
+  }
+   Articles(
+    {url: `${localApi}/?p=${pageN}`}) 
+ 
+ }
+)
+nextButton.addEventListener('click', (e) => {
+    pageN++;
+    Articles({url: `${localApi}/?p=${pageN}`}) 
+
+    }) 
+  
+
+fetch(`${localApi}/top`).then(response => {
   if(!response.ok) {
      console.log('Something went wrong');
      return;
@@ -30,60 +56,13 @@ fetch(localApi).then(response => {
 }).then(data=>{
   state.articles = data
 
-  state.articles.forEach(article=>{
-    // const { title, urlToImage, description} = article;
-    // if (description == null) return;
-    // if (description == '[Removed]') return;
-    // if (urlToImage == null) return;
-    // artikull.push({title, description, urlToImage})
-
-    const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
-  
-          <div class="flex flex-row w-1/2">
-      <a href="article.html?id=${article._id}">
-      <img alt="" src=${article.imgUrl} class="w-full h-34 p-1" />
-      </a>
-
-      </div>
-
-    <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
-    <div
-        class="border-gray-900/10 border-s p-2 sm:p-4 sm:border-l-transparent"
-      >
-        <a href="article.html?id=${article._id}">
-          <h3
-            class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-gray-300 uppercase"
-          >
-          ${article.title}
-          </h3>
-        </a>
-
-        <p class="line-clamp-3 mt-4"> ${article.description}
-        </p>
-      </div>
-
-      <div class="sm:flex sm:justify-end sm:items-end">
-        <a
-          href="article.html?id=${article._id}"
-          class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
-        >
-        Lexo me shume...
-      </a>
-      </div>
-
-    </div>
-  </article>`
-  articleElement.insertAdjacentHTML('beforeend',articleHTML)  ; 
-    
-})
-
 for(let i=0; i<=5; i++)
   { 
     artikull.push(state.articles[i])
-    let mainNewsRightSideHTML = ` <div id=${i}
-      class="flex mt-2 lg:mt-0 artikull bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
+    let mainNewsRightSideHTML = `<div id=${i}
+      class="flex mb-2 lg:mt-0 artikull bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
       <img src="${artikull[i].imgUrl}" class="w-1/3 hover:cursor-default" alt="" />
-      <p id=${i} class="p-1  dark:text-gray-300 text-sm lg:text-md line-clamp-2">
+      <p id=${i} class="p-1 dark:text-gray-300 text-sm lg:text-md">
         ${artikull[i].title}
       </p>
     </div>`

@@ -7,7 +7,7 @@
 + [x] Implement search functionality
 + [x] Add more articles
 + [x] Add link from main news gallery photo to the selected article
-+ [+] Everything sorted by newest first.
++ [x] Everything sorted by newest first.
 + [ ] Add Eventlistener to the submit search button 
 + [ ] Refactor code if possible
 + [ ] Fix bugs

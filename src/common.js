@@ -10,7 +10,8 @@ export const articlesCategoryElement = document.querySelector('.articles_by_cate
 export const searchFormEl = document.querySelector(".search");
 export const searchInputEl = document.querySelector(".search__input");
 export const searchedArticlesElement = document.querySelector(".searched_articles");
-
+export const prevButton = document.querySelector('#prev');
+export const nextButton = document.querySelector('#next');
 export const state = {
   articles: {},
   topFive: {}
