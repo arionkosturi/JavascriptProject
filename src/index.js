@@ -1,6 +1,5 @@
 import { mainNewsElement,
   mainNewsRightSideElement,
-  articleElement,
   categoriesElement,
   footerElement,
   state,
@@ -18,7 +17,6 @@ categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 
 // Search and Header
 import "./search.js";
-
 
 let artikull = [];
 let pageN = 0;
@@ -43,8 +41,6 @@ nextButton.addEventListener('click', (e) => {
     Articles({url: `${localApi}/?p=${pageN}`}) 
     paginetedView.scrollIntoView({behavior: "smooth"});
     })
-  
-
 fetch(`${localApi}/top`).then(response => {
   if(!response.ok) {
      console.log('Something went wrong');

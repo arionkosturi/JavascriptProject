@@ -73,6 +73,7 @@ const searchHandler =
         search({
               q:query
             }) 
+        searchField.value='';
     }
   }
 }
@@ -92,7 +93,8 @@ searchBtnElement.addEventListener('click', event => {
       scrollTo(0,0)
       search({
             q:query
-          }) 
+          })
+     searchField.value='';
   }
 }
 )
