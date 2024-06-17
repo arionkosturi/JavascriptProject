@@ -11,12 +11,6 @@ export const searchFormEl = document.querySelector(".search");
 export const searchInputEl = document.querySelector(".search__input");
 export const searchedArticlesElement = document.querySelector(".searched_articles");
 
-// let category = ''
-// export const url = `https://newsapi.org/v2/
-// top-headlines
-// &category=${category}
-// &apiKey=${API_KEY}`
-// import {API_KEY} from './env.js'
 export const state = {
   articles: {},
   topFive: {}

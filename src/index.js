@@ -2,14 +2,10 @@ import { mainNewsElement,
   mainNewsRightSideElement,
   articleElement,
   categoriesElement,
-  // headerElement,
   footerElement,
   state,
   localApi } from './common.js'
 import categoriesHTML from "./modules/categories.js";
-// Header
-// import { headerHTML } from './components/Header.js'
-// headerElement.insertAdjacentHTML('afterbegin',headerHTML);
 
 // Footer
 import { footerHTML } from './components/Footer.js'
@@ -42,15 +38,19 @@ fetch(localApi).then(response => {
     // artikull.push({title, description, urlToImage})
 
     const articleHTML = `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
-    <div class="flex flex-row w-1/2">
+  
+          <div class="flex flex-row w-1/2">
+      <a href="article.html?id=${article._id}">
       <img alt="" src=${article.imgUrl} class="w-full h-34 p-1" />
-    </div>
+      </a>
+
+      </div>
 
     <div class="flex flex-col justify-between dark:bg-neutral-900 w-1/2">
-      <div
+    <div
         class="border-gray-900/10 border-s p-2 sm:p-4 sm:border-l-transparent"
       >
-        <a href="#">
+        <a href="article.html?id=${article._id}">
           <h3
             class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-gray-300 uppercase"
           >
@@ -58,7 +58,7 @@ fetch(localApi).then(response => {
           </h3>
         </a>
 
-        <p class="line-clamp-3"> ${article.description}
+        <p class="line-clamp-3 mt-4"> ${article.description}
         </p>
       </div>
 
@@ -67,9 +67,10 @@ fetch(localApi).then(response => {
           href="article.html?id=${article._id}"
           class="block bg-purple-500 hover:bg-purple-400 mx-2 px-5 py-3 font-bold text-center text-gray-100 text-xs uppercase transition"
         >
-        Lexo
+        Lexo me shume...
       </a>
       </div>
+
     </div>
   </article>`
   articleElement.insertAdjacentHTML('beforeend',articleHTML)  ; 

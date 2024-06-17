@@ -1,11 +1,8 @@
 import { 
   headerElement,
-  footerElement,
   localApi,
-  categoriesElement,
   searchedArticlesElement
  } from './common.js'
- import categoriesHTML from "./modules/categories.js";
  // Header
  import { headerHTML } from './components/Header.js'
  headerElement.insertAdjacentHTML('afterbegin',headerHTML);

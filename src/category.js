@@ -7,11 +7,7 @@ import {
  } from './common.js'
  import categoriesHTML from "./modules/categories.js";
 
- // Header
-//  import { headerHTML } from './components/Header.js'
-//  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
-
- // Footer
+  // Footer
  import { footerHTML } from './components/Footer.js'
 footerElement.insertAdjacentHTML('afterbegin',footerHTML);
 
@@ -65,7 +61,6 @@ function getCategory(categoryName) {
 
     })
     
-
 
 }).catch(err=>{
     console.log(err);

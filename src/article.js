@@ -7,10 +7,6 @@ import {
  } from './common.js'
  import categoriesHTML from "./modules/categories.js";
 
- // Header
-//  import { headerHTML } from './components/Header.js'
-//  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
-
  // Footer
  import { footerHTML } from './components/Footer.js'
 footerElement.insertAdjacentHTML('afterbegin',footerHTML);
@@ -29,12 +25,12 @@ function getArticle(id) {
     
     singleArticleElement.innerHTML = `<section class="bg-white container mx-auto dark:bg-gray-900">
     <div class="container mx-auto">
-        <h1 class="text-2xl mt-8 font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">${data.title}</h1>
+        <h1 class="text-3xl mt-8 font-semibold text-gray-800 capitalize lg:text-5xl dark:text-white">${data.title}</h1>
         <div class="mt-8 lg:-mx-6">
             <img class="object-cover w-[90%] lg:mx-6 rounded-xl h-72" src="${data.imgUrl}"alt="">
             <div class="mt-6  lg:mt-0 lg:mx-6 ">
               <a href='category.html?category=${data.category}'>  <p class="text-lg p-2 text-purple-700 font-bold uppercase">${data.category}</p></a>
-                <p class="block mt-4 text-3xl font-semibold text-gray-800 dark:text-white">
+                <p class="block mt-4 text-xl font-semibold text-gray-800 dark:text-white">
                     ${data.description}
                 </p>
                 <p class="mt-3 text-lg text-gray-500 dark:text-gray-300 md:text-md">
