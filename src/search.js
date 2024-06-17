@@ -1,14 +1,13 @@
 import { 
   headerElement,
   localApi,
-  searchedArticlesElement
+  searchedArticlesElement,
  } from './common.js'
  // Header
  import { headerHTML } from './components/Header.js'
  headerElement.insertAdjacentHTML('afterbegin',headerHTML);
 
  
-
 function getSearchedArticles(q) {
   fetch(`${localApi}/search/${q.q}`).then(response =>{
     if(!response.ok) {
@@ -61,24 +60,42 @@ function getSearchedArticles(q) {
     console.log(err);
   })
 }
+const searchHandler = 
+  event => {
+    const query = event.target.value
+    let searchHTML ='';
+    if (event.code == 'Enter') {
+      if (event.target.value.length >= 3) {
+        searchedArticlesElement.classList.add('p-8')
+        searchedArticlesElement.innerHTML = `<p class="dark:text-white flex"> Searched for: <span class="text-purple-700 px-2">${query}</span></p>`;
+        searchedArticlesElement.insertAdjacentHTML('afterbegin', searchHTML) 
+        scrollTo(0,0)
+        search({
+              q:query
+            }) 
+    }
+  }
+}
 
 const searchField = document.querySelector('input')
-searchField.addEventListener('keyup', event => {
-            const query = event.target.value
-            let searchHTML ='';
-            if (event.code == 'Enter') {
-              if (event.target.value.length >= 3) {
-                searchedArticlesElement.classList.add('p-8')
-                searchedArticlesElement.innerHTML = `<p class="dark:text-white flex"> Searched for: <span class="text-purple-700 px-2">${query}</span></p>`;
-                searchedArticlesElement.insertAdjacentHTML('afterbegin', searchHTML) 
-                scrollTo(0,0)
-                search({
-                      q:query
-                    }) 
-            }
-          }
-        })
-
+searchField.addEventListener('keyup', searchHandler)
+const searchBtnElement = document.querySelector('.search__submit-btn')
+searchBtnElement.addEventListener('click', event => {
+  const query = searchField.value;
+  console.log(searchField.value);
+  let searchHTML ='';
+  
+      if(searchField.value.length>3){
+      searchedArticlesElement.classList.add('p-8')
+      searchedArticlesElement.innerHTML = `<p class="dark:text-white flex"> Searched for: <span class="text-purple-700 px-2">${query}</span></p>`;
+      searchedArticlesElement.insertAdjacentHTML('afterbegin', searchHTML) 
+      scrollTo(0,0)
+      search({
+            q:query
+          }) 
+  }
+}
+)
 export default function search(q) {
   getSearchedArticles(q);
 }

@@ -19,7 +19,7 @@ export const headerHTML = `
                 placeholder="Search"
               />
               <form action="#" class="search">
-              <button type="submit" class="search__submit-btn">
+              <button type="button" class="search__submit-btn">
               <div class="flex text-center">
                 <i
                   class="group-hover:bg-purple-600 group-hover:text-white group-active:bg-green-900 bg-purple-300 dark:bg-slate-900 bg-opacity-60 hover:bg-opacity-80 p-2 rounded-full w-16 text-xl hover:text-white fa fa-search"
