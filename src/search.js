@@ -18,7 +18,7 @@ function getSearchedArticles(q) {
     
     return response.json();
   }).then(data =>{
-
+    searchedArticlesElement.insertAdjacentHTML('beforeend',`<p class="mx-6 p-2"><span class="text-purple-600 font-bold">${data.length}</span> Result(s) Found</p>`) 
     data.forEach(data =>{
      let searchedArticlesHTML = `<article class="flex w-[95%] ml-8 bg-white shadow-xl hover:shadow-xl my-3">
       <div class="flex flex-row w-1/3">

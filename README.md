@@ -2,7 +2,7 @@
 ### The page needs to connect to the local express-mongodb [API](https://github.com/arionkosturi/api-v2)
 
 
-#TODO
+##### TODO:
 + [x] Fix categories links in html
 + [x] Implement search functionality
 + [x] Add more articles
