@@ -28,6 +28,7 @@ Articles({
 })
 
 prevButton.addEventListener('click', (e) => {
+  scrollTo(0,690)
    if(pageN > 0) {
     pageN--;
 
@@ -39,6 +40,7 @@ prevButton.addEventListener('click', (e) => {
  }
 )
 nextButton.addEventListener('click', (e) => {
+    scrollTo(0,690)
     pageN++;
     Articles({url: `${localApi}/?p=${pageN}`}) 
 
