@@ -27,8 +27,10 @@ Articles({
    url: `${localApi}/?p=${pageN}` 
 })
 
+const paginetedView = document.querySelector('.pagination')
 prevButton.addEventListener('click', (e) => {
-  scrollTo(0,690)
+  e.preventDefault();
+  paginetedView.scrollIntoView({behavior: "smooth"});
    if(pageN > 0) {
     pageN--;
 
@@ -40,11 +42,13 @@ prevButton.addEventListener('click', (e) => {
  }
 )
 nextButton.addEventListener('click', (e) => {
-    scrollTo(0,690)
-    pageN++;
+  e.preventDefault();
+  paginetedView.scrollIntoView({behavior: "smooth"});
+
+  pageN++;
     Articles({url: `${localApi}/?p=${pageN}`}) 
 
-    }) 
+    })
   
 
 fetch(`${localApi}/top`).then(response => {
