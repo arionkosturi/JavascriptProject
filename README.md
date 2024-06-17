@@ -14,5 +14,5 @@
 
 ##### TODO:
 
-+ [-] Refactor code if possible.
++ [ ] Refactor code if possible.
 + [ ] Fix bugs.
