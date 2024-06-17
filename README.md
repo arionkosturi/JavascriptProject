@@ -8,7 +8,8 @@
 + [x] Add more articles
 + [x] Add link from main news gallery photo to the selected article
 + [x] Everything sorted by newest first.
-+ [x] Serch queries now are case insensitive.
++ [x] Search queries now are case insensitive.
++ [x] Search field is cleared after submit.
 + [x] Add Eventlistener to the submit search button.
 + [ ] Refactor code if possible.
 + [ ] Fix bugs.
