@@ -12,6 +12,9 @@
 + [x] Search field is cleared after submit.
 + [x] Add Eventlistener to the submit search button.
 
+##### Known Bugs:
++ [ ] Pagination doesn't get the total number of pages from the API 
+
 ##### TODO:
 
 + [ ] Refactor code if possible.
