@@ -11,7 +11,7 @@
 + [x] Search queries now are case insensitive.
 + [x] Search field is cleared after submit.
 + [x] Add Eventlistener to the submit search button.
-
++ [x] Added darkmode
 ##### Known Bugs:
 + [ ] Pagination doesn't get the total number of pages from the API 
 

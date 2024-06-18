@@ -1,5 +1,4 @@
 import {
-  localApi,
   articleElement
 } from './common.js'
 export default function Articles(settings) {
@@ -34,13 +33,13 @@ export default function Articles(settings) {
         >
           <a href="article.html?id=${articles._id}">
             <h3
-              class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-gray-300 uppercase"
+              class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-white uppercase"
             >
             ${articles.title}
             </h3>
           </a>
   
-          <p class="line-clamp-3 mt-4"> ${articles.description}
+          <p class="line-clamp-3 mt-4 dark:text-gray-50"> ${articles.description}
           </p>
         </div>
   

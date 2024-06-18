@@ -17,7 +17,7 @@ function getSearchedArticles(q) {
     
     return response.json();
   }).then(data =>{
-    searchedArticlesElement.insertAdjacentHTML('beforeend',`<p class="mx-6 p-2"><span class="text-purple-600 font-bold">${data.length}</span> Result(s) Found</p>`) 
+    searchedArticlesElement.insertAdjacentHTML('beforeend',`<p class="mx-6 dark:text-gray-300 p-2"><span class="text-purple-600 dark:text-purple-100 font-bold">${data.length}</span> Result(s) Found</p>`) 
     data.forEach(data =>{
      let searchedArticlesHTML = `<article class="flex w-[95%] ml-8 bg-white shadow-xl hover:shadow-xl my-3">
       <div class="flex flex-row w-1/3">
@@ -30,13 +30,13 @@ function getSearchedArticles(q) {
         >
           <a href="#">
             <h3
-              class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-gray-300 uppercase"
+              class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-white uppercase"
             >
             ${data.title}
             </h3>
           </a>
   
-          <p class="line-clamp-4"> ${data.description}
+          <p class="line-clamp-4 dark:text-gray-100"> ${data.description}
           </p>
         </div>
   
@@ -67,7 +67,7 @@ const searchHandler =
     if (event.code == 'Enter') {
       if (event.target.value.length >= 3) {
         searchedArticlesElement.classList.add('p-8')
-        searchedArticlesElement.innerHTML = `<p class="dark:text-white flex"> Searched for: <span class="text-purple-700 px-2">${query}</span></p>`;
+        searchedArticlesElement.innerHTML = `<p class="dark:text-gray-300 flex"> Searched for: <span class="text-purple-700 dark:text-purple-100 px-2">${query}</span></p>`;
         searchedArticlesElement.insertAdjacentHTML('afterbegin', searchHTML) 
         scrollTo(0,0)
         search({

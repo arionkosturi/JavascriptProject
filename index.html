@@ -15,6 +15,14 @@
 
     <link rel="stylesheet" href="output.css" />
     <script src="./src/index.js" defer type="module"></script>
+    <!-- Load theme on page load -->
+<script>
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark')
+  }
+</script>
   </head>
 
   <body class="dark:bg-neutral-900 mx-auto container">
@@ -27,7 +35,7 @@
     <!-- ./Header -->
 
         <!-- Searched Articles -->
-        <div class="grid bg-purple-100 mx-1 my-2 searched_articles">
+        <div class="grid bg-purple-100 dark:bg-purple-800 mx-1 my-2 searched_articles">
 
         </div>
     
@@ -116,4 +124,5 @@
     </footer>
     <!--./footer -->
   </body>
+    
 </html>

@@ -6,6 +6,7 @@ import {
   categoriesElement
  } from './common.js'
  import categoriesHTML from "./modules/categories.js";
+//  import "./components/Darkmode.js"
 
   // Footer
  import { footerHTML } from './components/Footer.js'
@@ -37,13 +38,13 @@ function getCategory(categoryName) {
         >
           <a href="#">
             <h3
-              class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-gray-300 uppercase"
+              class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-white uppercase"
             >
             ${data.title}
             </h3>
           </a>
   
-          <p class="line-clamp-4"> ${data.description}
+          <p class="line-clamp-4 mt-6 dark:text-gray-100"> ${data.description}
           </p>
         </div>
   

@@ -17,6 +17,7 @@ categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
 
 // Search and Header
 import "./search.js";
+import "./components/Darkmode.js"
 
 let artikull = [];
 let pageN = 0;
@@ -25,6 +26,7 @@ Articles({
    url: `${localApi}/?p=${pageN}` 
 })
 
+// Pagination
 const paginetedView = document.querySelector('.pagination')
 prevButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -52,6 +54,7 @@ fetch(`${localApi}/top`).then(response => {
 }).then(data=>{
   state.articles = data
 
+// Gallery
 for(let i=0; i<=5; i++)
   { 
     artikull.push(state.articles[i])
@@ -93,7 +96,6 @@ mainNewsRightSideElement.addEventListener('click', e => {
     </div>`;
     window.scrollTo(0, 0);
   })
-
 }
 
 ).catch(

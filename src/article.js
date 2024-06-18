@@ -1,11 +1,13 @@
 import { 
-  headerElement,
   footerElement,
   singleArticleElement,
   localApi,
   categoriesElement
  } from './common.js'
  import categoriesHTML from "./modules/categories.js";
+ import './components/Darkmode.js'
+
+
 
  // Footer
  import { footerHTML } from './components/Footer.js'
