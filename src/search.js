@@ -64,7 +64,7 @@ const searchHandler =
   event => {
     const query = event.target.value
     let searchHTML ='';
-    if (event.code == 'Enter') {
+    if (event.key == 'Enter') {
       if (event.target.value.length >= 3) {
         searchedArticlesElement.classList.add('p-8')
         searchedArticlesElement.innerHTML = `<p class="dark:text-gray-300 flex"> Searched for: <span class="text-purple-700 dark:text-purple-100 px-2">${query}</span></p>`;
@@ -98,6 +98,14 @@ searchBtnElement.addEventListener('click', event => {
   }
 }
 )
+
+document.addEventListener('keydown', (e) => {
+  if(e.key =='Shift' || e.key =='Control' || e.key =='Meta' || e.key =='Alt' || e.key =='ArrowDown' || e.key =='ArrowUp') return;
+    searchField.focus() 
+  
+  
+})
+
 export default function search(q) {
   getSearchedArticles(q);
 }

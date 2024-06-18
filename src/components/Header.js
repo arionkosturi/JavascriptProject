@@ -16,7 +16,7 @@ export const headerHTML = `
                 type="search"
                 id="search__input"
                 class=" border-purple-600 bg-white dark:bg-neutral-900 focus:ring-opacity-70 p-2 border border-opacity-30 rounded-full w-full focus:outline-none focus:ring focus:ring-purple-600"
-                placeholder="Search"
+                placeholder="Start typing to search..."
               />
               <form action="#" class="search">
               <button type="button" class="search__submit-btn">

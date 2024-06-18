@@ -12,6 +12,7 @@
 + [x] Search field is cleared after submit.
 + [x] Add Eventlistener to the submit search button.
 + [x] Added darkmode
++ [x] You can start typing to search without clicking the input field.
 ##### Known Bugs:
 + [ ] Pagination doesn't get the total number of pages from the API 
 
