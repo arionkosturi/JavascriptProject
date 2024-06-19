@@ -88,7 +88,7 @@ searchBtnElement.addEventListener('click', event => {
   
       if(searchField.value.length>3){
       searchedArticlesElement.classList.add('p-8')
-      searchedArticlesElement.innerHTML = `<p class="dark:text-white flex"> Searched for: <span class="text-purple-700 px-2">${query}</span></p>`;
+      searchedArticlesElement.innerHTML = `<p class="dark:text-white flex"> Searched for: <span class="text-purple-700 dark:text-purple-200 px-2">${query}</span></p>`;
       searchedArticlesElement.insertAdjacentHTML('afterbegin', searchHTML) 
       scrollTo(0,0)
       search({
