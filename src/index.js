@@ -1,73 +1,77 @@
-import { mainNewsElement,
+import {
+  mainNewsElement,
   mainNewsRightSideElement,
   categoriesElement,
   footerElement,
   state,
   prevButton,
   nextButton,
-  localApi } from './common.js'
+  localApi,
+} from "./common.js";
 import categoriesHTML from "./modules/categories.js";
-import Articles from "./articles.js"
+import Articles from "./articles.js";
 
 // Footer
-import { footerHTML } from './components/Footer.js'
-footerElement.insertAdjacentHTML('afterbegin',footerHTML);
+import { footerHTML } from "./components/Footer.js";
+footerElement.insertAdjacentHTML("afterbegin", footerHTML);
 // Categories
-categoriesElement.insertAdjacentHTML('beforebegin', categoriesHTML );
+categoriesElement.insertAdjacentHTML("beforebegin", categoriesHTML);
 
 // Search and Header
 import "./search.js";
-import "./components/Darkmode.js"
+import "./components/Darkmode.js";
 
 let artikull = [];
 let pageN = 0;
 
 Articles({
-   url: `${localApi}/?p=${pageN}` 
-})
+  url: `${localApi}/?p=${pageN}`,
+});
 
 // Pagination
-const paginetedView = document.querySelector('.pagination')
-prevButton.addEventListener('click', (e) => {
+const paginetedView = document.querySelector(".pagination");
+prevButton.addEventListener("click", (e) => {
   e.preventDefault();
-   if(pageN > 0) {
+  if (pageN > 0) {
     pageN--;
   }
-   Articles({url: `${localApi}/?p=${pageN}`}) 
-   paginetedView.scrollIntoView({behavior: "smooth"});
- }
-)
-nextButton.addEventListener('click', (e) => {
+  Articles({ url: `${localApi}/?p=${pageN}` });
+  paginetedView.scrollIntoView({ behavior: "smooth" });
+});
+nextButton.addEventListener("click", (e) => {
   e.preventDefault();
   pageN++;
-    Articles({url: `${localApi}/?p=${pageN}`}) 
-    paginetedView.scrollIntoView({behavior: "smooth"});
-    })
-fetch(`${localApi}/top`).then(response => {
-  if(!response.ok) {
-     console.log('Something went wrong');
-     return;
-   }
+  Articles({ url: `${localApi}/?p=${pageN}` });
+  paginetedView.scrollIntoView({ behavior: "smooth" });
+});
+fetch(`${localApi}/top`)
+  .then((response) => {
+    if (!response.ok) {
+      console.log("Something went wrong");
+      return;
+    }
 
-   return response.json();
+    return response.json();
+  })
+  .then((data) => {
+    state.articles = data;
 
-}).then(data=>{
-  state.articles = data
-
-// Gallery
-for(let i=0; i<=5; i++)
-  { 
-    artikull.push(state.articles[i])
-    let mainNewsRightSideHTML = `<div id=${i}
+    // Gallery
+    for (let i = 0; i <= 5; i++) {
+      artikull.push(state.articles[i]);
+      let mainNewsRightSideHTML = `<div id=${i}
       class="flex mb-2 lg:mt-0 artikull bg-slate-100 dark:bg-neutral-800 opacity-85 hover:opacity-100 hover:shadow-md">
       <img src="${artikull[i].imgUrl}" class="w-1/3 hover:cursor-default" alt="" />
       <p id=${i} class="p-1 dark:text-gray-300 text-sm lg:text-md">
         ${artikull[i].title}
       </p>
-    </div>`
-  mainNewsRightSideElement.insertAdjacentHTML('afterbegin', mainNewsRightSideHTML);
+    </div>`;
+      mainNewsRightSideElement.insertAdjacentHTML(
+        "afterbegin",
+        mainNewsRightSideHTML
+      );
 
-  mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
+      mainNewsElement.innerHTML = `<div class="opacity-95 hover:opacity-100 mr-2">
   <a href="article.html?id=${artikull[0]._id}">
   <img src="${artikull[0].imgUrl}" alt="" class="opacity-90" />
       <div
@@ -77,12 +81,12 @@ for(let i=0; i<=5; i++)
         </h3>
       </div>
       </a>
-    </div>`  
-}
-mainNewsRightSideElement.addEventListener('click', e => {
-    e.preventDefault();
-    let id = 0;
-    id = e.target.getAttribute('id');
+    </div>`;
+    }
+    mainNewsRightSideElement.addEventListener("click", (e) => {
+      e.preventDefault();
+      let id = 0;
+      id = e.target.getAttribute("id");
       mainNewsElement.innerHTML = `<div  class="opacity-95 hover:opacity-100 mr-2">
       <a href="article.html?id=${artikull[id]._id}">
       <img src="${artikull[id].imgUrl}" alt="" class="opacity-90" />
@@ -94,12 +98,9 @@ mainNewsRightSideElement.addEventListener('click', e => {
       </div>
       </a>
     </div>`;
-    window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
+    });
   })
-}
-
-).catch(
-  error => {
+  .catch((error) => {
     console.log(error);
-  }
-)
+  });
