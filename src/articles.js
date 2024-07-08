@@ -1,24 +1,22 @@
-import {
-  articleElement
-} from './common.js'
+import { articleElement } from "./common.js";
 export default function Articles(settings) {
-  let url = settings.url
-  let articleHTML = ''
+  let url = settings.url;
+  let articleHTML = "";
 
-  fetch(url).then(response => {
-    if(!response.ok) {
-    console.log('Something went wrong');
-    return;
-     }
-     return response.json();
-  }).then(data=>{
-    let articles = data
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        console.log("Something went wrong");
+        return;
+      }
+      return response.json();
+    })
+    .then((data) => {
+      let articles = data;
 
-    for (articles of articles) {
-
-    
-    
-     articleHTML += `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
+      for (articles of articles) {
+        if ((articles.isPublished == false) | undefined) return;
+        articleHTML += `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     
            <div class="flex flex-row w-1/2">
        <a href="article.html?id=${articles._id}">
@@ -35,7 +33,7 @@ export default function Articles(settings) {
             <h3
               class="line-clamp-2 sm:line-clamp-3 font-bold text-gray-900 dark:text-white uppercase"
             >
-            ${articles.title}
+               ${articles.title}
             </h3>
           </a>
   
@@ -53,14 +51,11 @@ export default function Articles(settings) {
         </div>
   
       </div>
-    </article>`
-    articleElement.innerHTML = articleHTML; 
-  
-  }
-})
-.catch(
-  error => {
-    console.log(error);
-  }
-)
+    </article>`;
+        articleElement.innerHTML = articleHTML;
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
