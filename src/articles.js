@@ -15,8 +15,8 @@ export default function Articles(settings) {
       let articles = data;
 
       for (articles of articles) {
-        if ((articles.isPublished == false) | undefined) return;
-        articleHTML += `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
+        if (articles.isPublished == true) {
+          articleHTML += `<article class="flex bg-white shadow-xl hover:shadow-xl my-3">
     
            <div class="flex flex-row w-1/2">
        <a href="article.html?id=${articles._id}">
@@ -52,7 +52,8 @@ export default function Articles(settings) {
   
       </div>
     </article>`;
-        articleElement.innerHTML = articleHTML;
+          articleElement.innerHTML = articleHTML;
+        }
       }
     })
     .catch((error) => {
